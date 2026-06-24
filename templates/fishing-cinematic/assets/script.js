@@ -116,6 +116,8 @@
       player.pause();
     }
     fab.addEventListener("click", openModal);
+    var reel = document.getElementById("reelStick");
+    if (reel) reel.addEventListener("click", openModal);
     modalClose.addEventListener("click", closeModal);
     modal.addEventListener("click", function (e) { if (e.target === modal) closeModal(); });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape" && modal.classList.contains("open")) closeModal(); });

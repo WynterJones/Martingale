@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RIGDROP — Win the Ultimate Battlestation</title>
+    <meta name="description" content="Dark-neon giveaway landing-page template (fictional): enter free to win a $12,400 RGB battlestation — custom PC, OLED ultrawide, chair, and full peripheral kit.">
+    <link rel="icon" type="image/png" href="brand/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body>
+    <!-- announcement / urgency bar -->
+    <div class="topbar" id="topbar">
+      <span class="dot" aria-hidden="true"></span>
+      <span>Drop #17 closes in <b id="topCountdown">00d 00:00:00</b> — winner drawn live</span>
+    </div>
+
+    <header class="nav" id="nav">
+      <a class="brand" href="#top" aria-label="RIGDROP home">
+        <img src="brand/logo.png" alt="RIGDROP" height="34">
+      </a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="#prizes">Prizes</a>
+        <a href="#how">How it works</a>
+        <a href="#winners">Winners</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="btn btn-sm" href="#enter">Enter free</a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="Close menu">&times;</button>
+      <a href="#prizes">Prizes</a>
+      <a href="#how">How it works</a>
+      <a href="#winners">Winners</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn" href="#enter">Enter free</a>
+    </div>
+
+    <main id="top">
+      <!-- ===================== HERO ===================== -->
+      <section class="hero">
+        <video class="media" autoplay muted loop playsinline preload="metadata" poster="assets/video/hero-poster.jpg">
+          <source src="assets/video/hero.mp4" type="video/mp4">
+        </video>
+        <div class="media-scrim"></div>
+        <div class="grid-floor" aria-hidden="true"></div>
+        <canvas class="particles" id="particles" aria-hidden="true"></canvas>
+
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <span class="kicker reveal"><i class="dot"></i> Free to enter · No purchase necessary</span>
+            <h1 class="sr-only">Win the ultimate battlestation</h1>
+            <img class="headline reveal" src="assets/img/headline.png" alt="Win the ultimate battlestation" width="640">
+            <p class="lede reveal">One winner walks away with a <strong>$12,400</strong> dream rig — <mark>custom RGB PC, OLED ultrawide & the full kit</mark>. Entering takes ten&nbsp;seconds.</p>
+
+            <!-- enter-to-win form card -->
+            <form class="enter-card reveal" id="enter" novalidate>
+              <div class="enter-row">
+                <input type="email" id="email" name="email" inputmode="email" autocomplete="email" placeholder="you@email.com" aria-label="Email address" required>
+                <a class="btn-cta" href="#" id="enterBtn" role="button" aria-label="Enter to win"><img src="assets/img/btn-cta.png" alt="Enter to win"></a>
+              </div>
+              <p class="enter-note" id="enterNote">Drop #17 · <b id="entryCount" data-count="48217">48,217</b> entries so far · closes <b>Jun 30</b></p>
+            </form>
+
+            <ul class="trust reveal">
+              <li><img src="assets/img/ic-verified.png" alt="" class="ti"> Verified winners</li>
+              <li><img src="assets/img/ic-check.png" alt="" class="ti"> Ships worldwide</li>
+              <li><img src="assets/img/ic-check.png" alt="" class="ti"> Drawn on stream</li>
+            </ul>
+          </div>
+
+          <!-- prize value badge -->
+          <button class="reel-play" id="watchBtn" type="button" aria-label="Watch this drop">
+            <span class="seal">
+              <img src="assets/img/seal.png" alt="">
+              <span class="seal-num"><b>$12.4K</b><small>prize value</small></span>
+            </span>
+            <span class="play-hint"><img src="assets/img/ic-chev.png" alt=""> Watch the rig</span>
+          </button>
+        </div>
+        <div class="scroll-cue" aria-hidden="true"><span></span></div>
+      </section>
+
+      <!-- ===================== STAT STRIP ===================== -->
+      <section class="stats">
+        <div class="stat reveal"><b data-count="12400" data-prefix="$">$12,400</b><span>Grand prize</span></div>
+        <div class="stat reveal"><b data-count="16">16</b><span>Drops awarded</span></div>
+        <div class="stat reveal"><b data-count="312000">312,000</b><span>Entries to date</span></div>
+        <div class="stat reveal"><b>100%</b><span>Free to enter</span></div>
+      </section>
+
+      <!-- ===================== PRIZES (bento) ===================== -->
+      <section class="prizes" id="prizes">
+        <header class="sec-head reveal">
+          <h2>One winner. <span class="grad">The whole rig.</span></h2>
+          <p class="sec-sub">Nine pieces of flagship gear, built into one battlestation and shipped to your door — assembled, tuned, and&nbsp;ready.</p>
+        </header>
+
+        <div class="bento">
+          <article class="tile tile-xl reveal">
+            <div class="tile-glow" aria-hidden="true"></div>
+            <img class="tile-img" src="assets/img/prize-pc.png" alt="Custom RGB gaming PC tower">
+            <div class="tile-meta">
+              <span class="tag">Centerpiece</span>
+              <h3>Custom RTX battlestation PC</h3>
+              <p>Liquid-cooled flagship build, tempered glass, full RGB.</p>
+              <span class="val">$4,200</span>
+            </div>
+          </article>
+
+          <article class="tile tile-wide reveal">
+            <div class="tile-glow" aria-hidden="true"></div>
+            <img class="tile-img" src="assets/img/prize-monitor.png" alt="49-inch curved OLED ultrawide monitor">
+            <div class="tile-meta">
+              <h3>49″ OLED ultrawide</h3>
+              <p>240Hz curved super-ultrawide.</p>
+              <span class="val">$1,600</span>
+            </div>
+          </article>
+
+          <article class="tile reveal">
+            <div class="tile-glow" aria-hidden="true"></div>
+            <img class="tile-img" src="assets/img/prize-chair.png" alt="Racing-style gaming chair">
+            <div class="tile-meta"><h3>Pro racing chair</h3><span class="val">$900</span></div>
+          </article>
+
+          <article class="tile reveal">
+            <div class="tile-glow" aria-hidden="true"></div>
+            <img class="tile-img" src="assets/img/prize-keyboard.png" alt="Mechanical RGB keyboard">
+            <div class="tile-meta"><h3>Mechanical keyboard</h3><span class="val">$280</span></div>
+          </article>
+
+          <article class="tile reveal">
+            <div class="tile-glow" aria-hidden="true"></div>
+            <img class="tile-img" src="assets/img/prize-headset.png" alt="Premium gaming headset">
+            <div class="tile-meta"><h3>Studio headset</h3><span class="val">$350</span></div>
+          </article>
+
+          <article class="tile reveal">
+            <div class="tile-glow" aria-hidden="true"></div>
+            <img class="tile-img" src="assets/img/prize-mouse.png" alt="Pro gaming mouse">
+            <div class="tile-meta"><h3>Pro mouse</h3><span class="val">$160</span></div>
+          </article>
+
+          <article class="tile tile-deck reveal">
+            <div class="tile-glow" aria-hidden="true"></div>
+            <img class="tile-img" src="assets/img/prize-deck.png" alt="Stream deck control pad">
+            <div class="tile-meta"><h3>Stream deck + dual mounts</h3><span class="val">$280</span></div>
+          </article>
+
+          <article class="tile tile-total reveal">
+            <span>Total build value</span>
+            <b>$12,400</b>
+            <a class="btn btn-block" href="#enter">Enter to win it free</a>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===================== HOW IT WORKS ===================== -->
+      <section class="how" id="how">
+        <header class="sec-head reveal">
+          <h2>Three steps. <span class="grad">Ten seconds.</span></h2>
+          <p class="sec-sub">No purchase, no catch. Drop your email, multiply your odds, and watch the draw&nbsp;live.</p>
+        </header>
+        <div class="steps">
+          <article class="step reveal">
+            <span class="step-no">01</span>
+            <img class="step-ic" src="assets/img/ic-enter.png" alt="">
+            <h3>Enter free</h3>
+            <p>Add your email above. That's one entry, locked in for Drop&nbsp;#17.</p>
+          </article>
+          <article class="step reveal">
+            <span class="step-no">02</span>
+            <img class="step-ic" src="assets/img/ic-share.png" alt="">
+            <h3>Share for 5× entries</h3>
+            <p>Get a referral link on the confirmation screen — each friend who joins boosts your&nbsp;odds.</p>
+          </article>
+          <article class="step reveal">
+            <span class="step-no">03</span>
+            <img class="step-ic" src="assets/img/ic-win.png" alt="">
+            <h3>Winner drawn live</h3>
+            <p>We pick and verify one winner on stream, then ship the rig anywhere in the&nbsp;world.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===================== WINNER SPOTLIGHT ===================== -->
+      <section class="winners" id="winners">
+        <div class="band-bg parallax" data-speed="0.12" style="background-image:url('assets/img/winner.webp')"></div>
+        <div class="band-scrim"></div>
+        <div class="winners-inner">
+          <div class="winners-copy reveal">
+            <span class="kicker"><i class="dot"></i> Drop #16 winner</span>
+            <h2>"I entered on my phone <span class="grad">at a bus stop.</span>"</h2>
+            <blockquote>Two weeks later a pallet showed up. The whole setup, built and dialed in. I genuinely thought it was a scam until the courier knocked.</blockquote>
+            <p class="cite">— Marcus R., Leeds UK · verified on stream</p>
+            <div class="mini-stats">
+              <div><b data-count="16">16</b><span>winners paid out</span></div>
+              <div><b data-count="198000" data-prefix="$">$198,000</b><span>in gear awarded</span></div>
+            </div>
+            <a class="btn" href="#enter">Enter the next drop</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== URGENCY ===================== -->
+      <section class="urgency reveal">
+        <div class="urg-inner">
+          <div class="urg-text">
+            <span class="kicker"><i class="dot"></i> Closing soon</span>
+            <h2>Drop #17 closes when the timer&nbsp;hits zero.</h2>
+          </div>
+          <div class="countdown" id="countdown" aria-label="Time remaining">
+            <div class="cd"><b id="cdD">00</b><span>days</span></div>
+            <div class="cd"><b id="cdH">00</b><span>hrs</span></div>
+            <div class="cd"><b id="cdM">00</b><span>min</span></div>
+            <div class="cd"><b id="cdS">00</b><span>sec</span></div>
+          </div>
+          <a class="btn btn-lg" href="#enter">Lock in my entry</a>
+        </div>
+      </section>
+
+      <!-- ===================== FAQ ===================== -->
+      <section class="faq" id="faq">
+        <header class="sec-head reveal">
+          <h2>Questions, <span class="grad">answered.</span></h2>
+        </header>
+        <div class="faq-list reveal">
+          <details>
+            <summary>Is it really free?<img src="assets/img/ic-chev.png" alt="" class="chev"></summary>
+            <p>Yes. No purchase is necessary to enter or win. Sharing your referral link earns bonus entries, but a single free entry has the same shot in the draw.</p>
+          </details>
+          <details>
+            <summary>How is the winner chosen?<img src="assets/img/ic-chev.png" alt="" class="chev"></summary>
+            <p>One entry is drawn at random after the timer closes and verified live on stream. The winner is contacted by email within 24 hours and announced publicly once confirmed.</p>
+          </details>
+          <details>
+            <summary>Can I enter from outside the US?<img src="assets/img/ic-chev.png" alt="" class="chev"></summary>
+            <p>Yes — RIGDROP ships the battlestation worldwide. Where local law requires, we provide an equivalent cash alternative instead of shipping.</p>
+          </details>
+          <details>
+            <summary>What exactly do I win?<img src="assets/img/ic-chev.png" alt="" class="chev"></summary>
+            <p>The complete build pictured above — PC, 49″ OLED ultrawide, chair, keyboard, mouse, headset, stream deck and mounts — assembled, tested, and shipped to your door.</p>
+          </details>
+          <details>
+            <summary>When is the next drop?<img src="assets/img/ic-chev.png" alt="" class="chev"></summary>
+            <p>Drops run monthly. Drop #17 closes June 30. Enter once and you'll get an email the moment the next drop opens.</p>
+          </details>
+        </div>
+      </section>
+
+      <!-- ===================== FINAL CTA ===================== -->
+      <section class="final">
+        <div class="band-bg parallax" data-speed="0.14" style="background-image:url('assets/img/hero.webp')"></div>
+        <div class="band-scrim"></div>
+        <div class="grid-floor" aria-hidden="true"></div>
+        <div class="final-inner reveal">
+          <h2>Your battlestation is <span class="grad">one email away.</span></h2>
+          <p class="sec-sub">Free to enter. Drawn live. Shipped worldwide. Don't watch someone else win&nbsp;it.</p>
+          <form class="enter-card center" id="enter2" novalidate>
+            <div class="enter-row">
+              <input type="email" id="email2" name="email" inputmode="email" autocomplete="email" placeholder="you@email.com" aria-label="Email address" required>
+              <a class="btn-cta" href="#" id="enterBtn2" role="button" aria-label="Enter to win"><img src="assets/img/btn-cta.png" alt="Enter to win"></a>
+            </div>
+            <p class="enter-note"><b id="entryCount2">48,217</b> entered · winner drawn June 30</p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="foot-top">
+        <a class="brand" href="#top" aria-label="RIGDROP home"><img src="brand/logo.png" alt="RIGDROP" height="30"></a>
+        <nav class="foot-links" aria-label="Footer">
+          <a href="#prizes">Prizes</a>
+          <a href="#how">How it works</a>
+          <a href="#winners">Winners</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+      </div>
+      <p class="rules">Fictional demo template. No purchase necessary to enter or win. Void where prohibited. Open to entrants 18+. Odds depend on number of entries. Sponsor: RIGDROP (fictional). This is a design demo and not a real sweepstakes — see official rules.</p>
+      <p class="copy">© RIGDROP — a RIGDROP demo template. Built with the LP-Templates kit.</p>
+    </footer>
+
+    <!-- video modal (real YouTube embed) -->
+    <div class="modal" id="videoModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Watch the rig">
+      <div class="modal-card">
+        <button class="modal-close" id="modalClose" type="button" aria-label="Close">&times;</button>
+        <div class="modal-video">
+          <!-- placeholder video — swap aqz-KE-bpKQ for your real drop-reveal YouTube ID -->
+          <iframe id="player" src="" data-src="https://www.youtube.com/embed/aqz-KE-bpKQ?rel=0" title="Watch the rig" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        <div class="modal-foot">
+          <p>Drop #17 · the full $12,400 build, lit up and running.</p>
+          <a class="btn-cta" href="#enter" data-close-modal aria-label="Enter to win"><img src="assets/img/btn-cta.png" alt="Enter to win"></a>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="assets/script.js"></script>
+  </body>
+</html>

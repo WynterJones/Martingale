@@ -1,89 +1,15 @@
 {
-  "note": "Every image the page references. prompt = brand.styleSignature + subjectPrompt. seed 88231 reused across the set.",
-  "brand": [
-    {
-      "id": "logo",
-      "engine": "ideogram/v3",
-      "aspect": "16:9",
-      "subjectPrompt": "Horizontal logo lockup on a plain flat MID-GRAY background: a glossy ornate golden dragon-head emblem wrapped around a blacksmith anvil on the LEFT, the bold wordmark 'DragonForge' in molten gold on ONE single line to its right. Only that one word, no tagline, no extra icons.",
-      "post": "fal bg -> imgkit alpha -> brand/logo.png ; imgkit crop box 0,0,0.24,1 -> brand/logo-mark.png",
-      "out": "brand/logo.png"
-    },
-    {
-      "id": "favicon",
-      "engine": "derive",
-      "post": "imgkit favicon brand/logo-mark.png -> brand/favicon.png (256)",
-      "out": "brand/favicon.png"
-    },
-    {
-      "id": "og-image",
-      "engine": "flux ultra",
-      "aspect": "16:9",
-      "subjectPrompt": "A colossal golden dragon coiled around a glowing volcanic blacksmith forge anvil, molten gold and ember sparks erupting upward, obsidian cavern, dramatic god rays, wide cinematic hero composition with generous dark negative space on the left for a title overlay, epic AAA fantasy key art.",
-      "post": "imgkit webp/png 1200x630 friendly -> brand/og-image.png",
-      "out": "brand/og-image.png"
-    }
-  ],
-  "hero": [
-    {
-      "id": "hero",
-      "engine": "flux ultra",
-      "aspect": "16:9",
-      "subjectPrompt": "An immense majestic dragon perched over a molten forge of glowing landing-page screens and golden UI panels, breathing a stream of ember sparks that forge into bright web layouts, obsidian volcanic cavern, towering scale, dramatic ember and gold rim light, floating sparks and smoke, cinematic depth, room for copy on the lower-left, epic AAA fantasy game key art.",
-      "post": "imgkit webp 1920 -> assets/img/hero.webp ; fal video -> vidkit web/poster -> assets/video/hero.mp4 + hero-poster.jpg",
-      "out": "assets/img/hero.webp"
-    },
-    {
-      "id": "hl-forge",
-      "engine": "ideogram/v3",
-      "aspect": "16:9",
-      "subjectPrompt": "Epic 3D fantasy logo title text reading exactly 'DRAGONFORGE' on ONE line, carved from molten gold metal with glowing ember edges and a forged-steel bevel, dragon-scale texture, dramatic rim light, on a plain pure white background, no other objects, perfect spelling.",
-      "post": "fal bg -> imgkit alpha -> assets/img/hl-forge.png",
-      "out": "assets/img/hl-forge.png"
-    },
-    {
-      "id": "mascot",
-      "engine": "flux ultra",
-      "aspect": "1:1",
-      "subjectPrompt": "An adorable yet fierce small golden baby dragon mascot, friendly expressive eyes, glossy gold and jade scales, tiny ember glow at the nostrils, perched and looking toward the viewer, full body, centered, clean plain background, premium 3D collectible mascot quality.",
-      "post": "fal bg -> imgkit alpha 760 -> assets/img/mascot.png",
-      "out": "assets/img/mascot.png"
-    },
-    {
-      "id": "btn-cta",
-      "engine": "ideogram/v3",
-      "aspect": "3:1",
-      "subjectPrompt": "A premium 3D call-to-action button, wide rounded-rectangle filling the frame, rich molten-gold to ember-orange gradient with a glossy top sheen, crisp bright highlight along the top edge, soft golden outer glow, dragon-scale micro-texture, tactile pressable feel, high-end fantasy-game UI. Bold clean white sans-serif text on ONE single line reading exactly 'GET DRAGONFORGE', strong contrast, subtle dark shadow under the text. One continuous gold colour, no stripes, no two-tone, no seam, no emoji, no extra icons. Plain pure white background.",
-      "post": "fal bg -> imgkit alpha -> assets/img/btn-cta.png",
-      "out": "assets/img/btn-cta.png"
-    }
-  ],
-  "slotCards": [
-    { "id": "card-fishing", "engine": "flux ultra", "aspect": "1:1", "subjectPrompt": "A trophy bass leaping from teal dawn water in a glowing golden slot-reel emblem, cinematic fishing scene, framed as a luminous collectible game symbol, centered.", "post": "imgkit webp 900 -> assets/img/card-fishing.webp", "out": "assets/img/card-fishing.webp" },
-    { "id": "card-macaron", "engine": "flux ultra", "aspect": "1:1", "subjectPrompt": "A tower of pastel French macarons glowing like a treasure, soft patisserie light but rendered as a luminous golden slot-reel emblem, framed collectible game symbol, centered.", "post": "imgkit webp 900 -> assets/img/card-macaron.webp", "out": "assets/img/card-macaron.webp" },
-    { "id": "card-saas", "engine": "flux ultra", "aspect": "1:1", "subjectPrompt": "A floating neon SaaS app dashboard with glowing UI cards and a cute mascot, rendered as a luminous golden slot-reel emblem, framed collectible game symbol, centered.", "post": "imgkit webp 900 -> assets/img/card-saas.webp", "out": "assets/img/card-saas.webp" },
-    { "id": "card-leadgen", "engine": "flux ultra", "aspect": "1:1", "subjectPrompt": "A glowing email-capture VSL play button with rising profit charts and neon tech grid, rendered as a luminous golden slot-reel emblem, framed collectible game symbol, centered.", "post": "imgkit webp 900 -> assets/img/card-leadgen.webp", "out": "assets/img/card-leadgen.webp" },
-    { "id": "card-wild", "engine": "flux ultra", "aspect": "1:1", "subjectPrompt": "A radiant cracked golden dragon egg erupting with ember light and the word-free promise of infinite possibility, ultra-premium jackpot WILD slot-reel emblem with the most ornate gold filigree frame, framed collectible game symbol, centered.", "post": "imgkit webp 900 -> assets/img/card-wild.webp", "out": "assets/img/card-wild.webp" }
-  ],
-  "icons": [
-    { "id": "ic-anvil",   "desc": "a blacksmith anvil with a single flame", "out": "assets/img/ic-anvil.png" },
-    { "id": "ic-spark",   "desc": "a four-point AI spark / magic star", "out": "assets/img/ic-spark.png" },
-    { "id": "ic-terminal","desc": "a code terminal window with angle brackets", "out": "assets/img/ic-terminal.png" },
-    { "id": "ic-chest",   "desc": "an open treasure chest overflowing with gold (a downloadable ZIP of riches)", "out": "assets/img/ic-chest.png" },
-    { "id": "ic-scroll",  "desc": "a stack of glowing template cards / a scroll", "out": "assets/img/ic-scroll.png" },
-    { "id": "ic-motion",  "desc": "a swirling motion / animation vortex with sparks", "out": "assets/img/ic-motion.png" },
-    { "iconSetNote": "all icons: 'minimal premium emblem icon on a solid pure white background, glossy molten-gold and jade two-tone (#f4c044 / #36c08a), even medium stroke, matching a cohesive fantasy game icon set, no text'. flux ultra on white -> imgkit keyout --trim --pad 36 --size 256." }
-  ],
-  "chrome": [
-    { "id": "ic-check", "desc": "a bold rounded checkmark inside a glowing gold dragon-scale coin", "post": "keyout 200", "out": "assets/img/ic-check.png" },
-    { "id": "seal", "desc": "an ornate empty circular golden dragon medallion / coin seal with filigree border and a blank smooth center (number overlaid in HTML)", "post": "fal bg -> alpha 360", "out": "assets/img/seal.png" },
-    { "id": "play-badge", "desc": "a glossy gold circular play button with a forward triangle, ember glow", "post": "fal bg -> alpha 220", "out": "assets/img/play-badge.png" }
-  ],
-  "accents": [
-    { "id": "coil", "engine": "flux ultra", "aspect": "16:9", "subjectPrompt": "An ornate golden dragon coiling in an elegant horizontal S-curve, glowing ember outline, isolated on plain background, decorative section-divider accent.", "post": "fal bg -> alpha 1400 -> assets/img/coil.png", "out": "assets/img/coil.png" }
-  ],
-  "video": [
-    { "id": "hero",  "from": "raw/hero.jpg",  "prompt": "looping idle: ember sparks drift up, dragon breathes faint glowing embers, forge light pulses, smoke rolls slowly, subtle parallax push-in, seamless 5s loop, preserve artwork, no large body movement, no cuts", "out": "assets/video/hero.mp4" },
-    { "id": "forge", "from": "raw/og-image.jpg", "prompt": "looping idle: molten gold shimmer, ember sparks rise, forge glow pulses, slow smoke drift, seamless 5s loop, preserve artwork, no cuts", "out": "assets/video/forge.mp4" }
+  "brand": "NabuDesigner",
+  "note": "Every prompt is prepended with brand.json.styleSignature. Stills via fal flux-pro ultra; text/headline via ideogram v3; icons/button via recraft v3; cut-outs via fal bg removal; video via kling + vidkit (pingpong+web+poster).",
+  "slots": [
+    { "id": "hero", "type": "scene+video", "engine": "fal:flux-pro ultra -> kling", "subjectPrompt": "wise great-horned owl perched on an obsidian altar gazing at a glowing ringed nebula in a midnight observatory; owl on the right, open dark sky on the left for copy", "post": "flip H, pingpong+web+poster, webp fallback", "out": ["assets/video/hero.mp4", "assets/video/hero-poster.jpg", "assets/img/hero.webp"] },
+    { "id": "headline", "type": "headline-graphic", "engine": "fal:ideogram v3", "subjectPrompt": "the words 'Pages Worth Shipping' in bold gold->iris serif with soft glow and a crescent, pure-black bg", "post": "keyout 000000 -> transparent png", "out": "assets/img/headline.png" },
+    { "id": "owl", "type": "mascot-cutout", "engine": "fal:flux-pro ultra", "subjectPrompt": "adorable wise owl mascot, amber eyes, iris/teal iridescent feathers, star-fleck belly, gold crescent emblem", "post": "fal bg -> imgkit alpha", "out": "assets/img/owl.png" },
+    { "id": "logo-mark", "type": "app-icon", "engine": "fal:ideogram v3 (lockup) -> crop", "subjectPrompt": "rounded owl-head app icon, amber eyes, crescent, iris->teal gradient", "post": "crop icon, keyout gray, favicon", "out": ["brand/logo-mark.png", "brand/favicon.png", "assets/img/owl-mark.png"] },
+    { "id": "seal", "type": "badge", "engine": "fal:flux-pro ultra", "subjectPrompt": "circular gold-filigree medallion with crescent-owl center and empty inner band for text", "post": "fal bg -> alpha; 'INSTANT DOWNLOAD' overlaid as HTML", "out": "assets/img/seal.png" },
+    { "id": "icons", "type": "icon-set", "engine": "fal:recraft v3 (digital_illustration)", "subjectPrompt": "glowing iris/teal/gold line-art glyphs on flat indigo: terminal, key, command-wand, gem, motion-play, layers, owl, eye, check", "post": "fal bg -> imgkit alpha (square)", "out": "assets/img/ic-*.png" },
+    { "id": "templates", "type": "screenshots", "engine": "headless Chrome capture of the 10 templates", "subjectPrompt": "1440x900 hero capture of each template under templates/", "post": "imgkit webp --max 1240", "out": "assets/img/tpl-*.webp" },
+    { "id": "noise", "type": "grain", "engine": "PIL random noise", "subjectPrompt": "160px monochrome noise tile for the film-grain overlay", "post": "none", "out": "assets/img/noise.png" },
+    { "id": "og", "type": "social", "engine": "crop of hero", "subjectPrompt": "1200x630 social share image", "post": "crop+resize", "out": "brand/og-image.png" }
   ]
 }

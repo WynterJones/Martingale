@@ -106,6 +106,19 @@ offer/niche, give an LLM that template's `LLM.md` (e.g.
   links to Amazon. No video, no host widget (both optional); the design is carried
   by typography + gold-foil deco art + restrained motion. Real cover/portrait,
   matted & duotoned. Distinct archetype (editorial) and niche (a book).
+- `templates/battlestation-giveaway/` — **dark-neon giveaway/sweepstakes** (RIGDROP):
+  enter-to-win an RGB battlestation. Bold electric-cyan + magenta on near-black,
+  Chakra Petch display. Hero enter form + live countdown/entry counter + prize-value
+  seal, itemized **prize bento** of product cut-outs, 3-step how-it-works, winner
+  spotlight, urgency, FAQ, YouTube modal. Proves the giveaway archetype in a dark,
+  gaming niche (contrast to the light-luxe makeup-giveaway).
+- `templates/codeforge-academy/` — **dark cinematic course sales page** (CodeForge):
+  a project-based coding course. Repurposed from the repo's own `salespage/` — keeps
+  the obsidian + molten-gold **dragon-forge** art (mascot, ambient video, slot-machine
+  showcase reel, medallion seal) but re-positions it: "forge real software." Hero video
+  + regenerated **CodeForge** wordmark + **Start Forging** image CTA, project reel,
+  0–4 curriculum, one-time price + lifetime access, sample-lesson YouTube modal. Proves
+  the cinematic skeleton resells as a course / skill-product archetype.
 - `templates/fishing-course-local-lake/` — baseline (no fal key; Gemini/Replicate).
 - `templates/_blank/` — copy-to-start scaffold.
 

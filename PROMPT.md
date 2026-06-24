@@ -179,22 +179,27 @@ cp -r templates/_blank templates/<slug>
 python3 tools/fal.py image --prompt "<styleSignature + subject>" --aspect 16:9 --seed <SEED> --out raw/hero.jpg
 python3 tools/imgkit.py webp raw/hero.jpg assets/img/hero.webp --max 1920
 
-# looping video (run in background, 1-5 min) -> web-weight + poster
+# looping video (run in background, 1-5 min) -> ping-pong (seamless) -> web-weight + poster
 python3 tools/fal.py video --image raw/hero.jpg --duration 5 --aspect 16:9 \
   --prompt "<looping idle: named layers that move + parallax, seamless loop>" --out raw/hero.mp4
-python3 tools/vidkit.py web    raw/hero.mp4 assets/video/hero.mp4 --max 1280
-python3 tools/vidkit.py poster raw/hero.mp4 assets/video/hero-poster.jpg
+python3 tools/vidkit.py pingpong raw/hero.mp4 raw/hero-pp.mp4          # forward+reverse: no seam-cut
+python3 tools/vidkit.py web      raw/hero-pp.mp4 assets/video/hero.mp4 --max 1280
+python3 tools/vidkit.py poster   raw/hero.mp4 assets/video/hero-poster.jpg
 
-# logo / icon / seal: generate on SOLID WHITE -> key transparent
-python3 tools/imgkit.py keyout raw/logo.jpg brand/logo.png       --fuzz 30 --trim --pad 56 --size 640
-python3 tools/imgkit.py keyout raw/ic-x.jpg assets/img/ic-x.png  --fuzz 30 --trim --pad 36 --size 256
-python3 tools/imgkit.py favicon brand/logo.png brand/favicon.png --size 256
+# cutouts (logo / icon / seal / mascot / prop): fal bg removal (Bria, best edges) -> trim
+python3 tools/fal.py bg raw/logo.jpg raw/logo-cut.png             # default = Bria matting
+python3 tools/imgkit.py alpha raw/logo-cut.png brand/logo.png     --pad 16 --size 640
+python3 tools/fal.py bg raw/ic-x.jpg raw/ic-x-cut.png
+python3 tools/imgkit.py alpha raw/ic-x-cut.png assets/img/ic-x.png --pad 28 --size 256 --square
+python3 tools/imgkit.py favicon brand/logo.png brand/favicon.png  --size 256
+# (imgkit keyout is the no-API fallback, only when generated on SOLID pure white)
 
-# full-image CTA button (Ideogram) -> keyout. SHORT one-line label, art-directed.
-python3 tools/fal.py image --model fal-ai/ideogram/v3 --aspect 3:1 \
-  --prompt "<art-directed button>, ultra-wide rounded-rectangle filling frame, ONE single line bold text reading exactly '<LABEL>', one continuous brand colour (no stripes/two-tone/seam), plain pure white background, no emoji, no extra icons/punctuation." \
-  --out raw/btn-hero.jpg
-python3 tools/imgkit.py keyout raw/btn-hero.jpg assets/img/btn-hero.png --fuzz 44 --trim --pad 8
+# the ONE image CTA — art-direct it (recraft-v3, material-integrated text). 2-3 tries, keep best.
+python3 tools/fal.py image --model fal-ai/recraft-v3 --imgsize 1600x520 \
+  --prompt "Premium <FINISH e.g. embossed gold / glossy gel / brushed steel> button: ONE wide rounded-rectangle pill filling the frame, <BRAND colour/material>, thick bevel, top sheen, soft inner glow, crisp diagonal specular highlight; the words '<LABEL>' on ONE line in the SAME material (embossed, same lighting) — never flat Arial-on-image; a small <BRAND motif> emblem fused into the left end; soft contact shadow, plain pure-white background. No second button, no extra text, no emoji." \
+  --out raw/btn-cta.jpg
+python3 tools/fal.py bg raw/btn-cta.jpg raw/btn-cta-cut.png && python3 tools/imgkit.py alpha raw/btn-cta-cut.png assets/img/btn-cta.png --pad 6
+# Hybrid alt (flagship style): CSS pill + a generated transparent prop/emblem cutout inside it + CSS shine-sweep.
 ```
 
 **Baseline tier (no FAL_KEY):** use the `imagegen` MCP — Gemini
@@ -231,10 +236,17 @@ AA contrast, no dead CTAs, favicon loads.
 
 ## The bar (don't ship below it)
 
-Graphics-led, low-text, marketing-focused. Every asset passes the glance test —
-instant impact, strong focal point, rich color, readable silhouette. Full-image AI
-CTA buttons, no emojis, no invented SVG icon art. Layout varies from its siblings.
-Motion feels expensive, not busy. **Contrast is non-negotiable:** every button
+Graphics-led, **bold, low-text**, marketing-focused. Every asset passes the glance
+test — instant impact, strong focal point, rich color, readable silhouette. **Every
+hero/feature section is layered (≥3 stacked graphic layers — bg → scrim → accent
+cutout/glow/particles → content); no flat text-on-a-fill sections.** Ship a **juicy
+hero headline graphic** plus 1–3 section headline graphics. The image CTA is
+**art-directed** (material-integrated text + a brand emblem + bevel/sheen), never a
+plain pill. Cut copy to a tight budget so there's room for art — when a section
+feels cramped, cut text, don't shrink the graphics. **Built in 2–3 polish passes**,
+not one. Looping video is **ping-ponged** so it never seam-cuts. Full-image AI CTA,
+no emojis, no invented SVG icon art. Layout varies from its siblings. Motion feels
+expensive, not busy. **Contrast is non-negotiable:** every button
 label, card/section text, logo, and badge/seal overlay reads AA against its own
 surface (not the page) — see DESIGN_GUIDELINES §2. If anything looks generic,
 washed-out, cluttered, low-contrast, or a button is inconsistent — regenerate it. The page reads as a premium,

@@ -6,6 +6,9 @@
     <title>The Macaron Method — Bake It. Brand It. Sell It.</title>
     <meta name="description" content="Cinematic landing-page template (fictional): a $97 course on making and selling macarons from a certified home kitchen via Shopify and social media.">
     <link rel="icon" type="image/png" href="brand/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/styles.css">
   </head>
   <body>
@@ -19,7 +22,7 @@
         <a href="#inside">Inside</a>
         <a href="#offer">Pricing</a>
       </nav>
-      <a class="btn-img sm" href="#offer"><img src="assets/img/btn-nav.png" alt="Get access — $97"></a>
+      <a class="btn nav-cta" href="#offer">Get access <span>$97</span></a>
       <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -30,7 +33,7 @@
       <a href="#method">Method</a>
       <a href="#inside">Inside</a>
       <a href="#offer">Pricing</a>
-      <a class="btn-img" href="#offer"><img src="assets/img/btn-nav.png" alt="Get access — $97"></a>
+      <a class="btn lg" href="#offer">Get access <span>$97</span></a>
     </div>
 
     <main id="top">
@@ -42,8 +45,9 @@
         <div class="media-scrim hero-scrim"></div>
         <canvas class="particles" id="particles" aria-hidden="true"></canvas>
         <div class="hero-inner">
+          <h1 class="sr-only">Bake it. Brand it. Sell it.</h1>
           <p class="eyebrow reveal">The macaron business course</p>
-          <h1 class="reveal">Bake it. Brand it.<br><span class="grad">Sell it.</span></h1>
+          <img class="hero-headline reveal" src="assets/img/headline.png" alt="Bake it. Brand it. Sell it." width="805" height="712">
           <p class="lede reveal">Turn your home kitchen into a macaron brand customers discover on Instagram and check out on Shopify.</p>
           <div class="hero-cta reveal">
             <a class="btn-img lg glow" href="#offer"><img src="assets/img/btn-hero.png" alt="Start baking — $97"></a>
@@ -94,6 +98,7 @@
         <div class="band-bg parallax" data-speed="0.12" style="background-image:url('assets/img/pack.webp')"></div>
         <div class="showcase-scrim"></div>
         <div class="showcase-inner reveal">
+          <p class="eyebrow">The unboxing</p>
           <h2>Packaging they'll want<br>to photograph.</h2>
         </div>
       </section>
@@ -106,10 +111,10 @@
           <p class="eyebrow reveal">What's inside</p>
           <h2 class="reveal">Everything from first shell<br>to first sale.</h2>
           <div class="cards">
-            <article class="card reveal"><img class="card-ic" src="assets/img/ic-bake.png" alt="" width="58" height="58"><b>Foolproof Shells</b><p>Ratios, macaronage, and oven fixes for consistent feet every time.</p></article>
-            <article class="card reveal"><img class="card-ic" src="assets/img/ic-cert.png" alt="" width="58" height="58"><b>Home-Kitchen Ready</b><p>Cottage-food basics, labeling, and food-safe packaging done right.</p></article>
-            <article class="card reveal"><img class="card-ic" src="assets/img/ic-shop.png" alt="" width="58" height="58"><b>Shopify Storefront</b><p>Set up products, pricing, and local pickup or shipping in an afternoon.</p></article>
-            <article class="card reveal"><img class="card-ic" src="assets/img/ic-social.png" alt="" width="58" height="58"><b>Sell on Social</b><p>A simple content rhythm that turns Instagram and TikTok into orders.</p></article>
+            <article class="card reveal"><img class="card-ic" src="assets/img/ic-bake.png" alt="" width="76" height="76"><b>Foolproof Shells</b><p>Ratios, macaronage, and oven fixes for consistent feet every time.</p></article>
+            <article class="card reveal"><img class="card-ic" src="assets/img/ic-cert.png" alt="" width="76" height="76"><b>Home-Kitchen Ready</b><p>Cottage-food basics, labeling, and food-safe packaging done right.</p></article>
+            <article class="card reveal"><img class="card-ic" src="assets/img/ic-shop.png" alt="" width="76" height="76"><b>Shopify Storefront</b><p>Set up products, pricing, and local pickup or shipping in an afternoon.</p></article>
+            <article class="card reveal"><img class="card-ic" src="assets/img/ic-social.png" alt="" width="76" height="76"><b>Sell on Social</b><p>A simple content rhythm that turns Instagram and TikTok into orders.</p></article>
           </div>
         </div>
       </section>
@@ -129,7 +134,7 @@
               <li><img src="assets/img/ic-shop.png" alt="">Shopify setup checklist<span>template</span></li>
               <li><img src="assets/img/ic-social.png" alt="">Packaging &amp; label kit<span>printable</span></li>
             </ul>
-            <a class="btn-img lg glow" href="#offer"><img src="assets/img/btn-kit.png" alt="Get the kit — $97"></a>
+            <a class="btn lg glow" href="#offer">Get the kit <span>$97</span></a>
           </div>
         </div>
       </section>
@@ -160,7 +165,7 @@
               <span>Recipe guide <b>$39</b></span>
             </div>
             <div class="total"><small>Today</small><strong>$97</strong></div>
-            <a class="btn-img block glow" href="#offer"><img src="assets/img/btn-offer.png" alt="Enroll now — $97"></a>
+            <a class="btn block lg glow" href="#offer">Enroll now <span>$97</span></a>
             <p class="micro">Fictional template · no checkout connected</p>
           </aside>
         </div>
@@ -182,9 +187,11 @@
       <section class="final">
         <div class="band-bg parallax" data-speed="0.14" style="background-image:url('assets/img/hero.webp')"></div>
         <div class="band-scrim"></div>
+        <img class="final-prop final-prop-l" src="assets/img/prop-one.png" alt="" aria-hidden="true">
+        <img class="final-prop final-prop-r" src="assets/img/prop-stack.png" alt="" aria-hidden="true">
         <div class="final-inner reveal">
           <h2>Your kitchen. Your brand.<br><span class="grad">Your business.</span></h2>
-          <a class="btn-img lg glow" href="#offer"><img src="assets/img/btn-final.png" alt="Get the course — $97"></a>
+          <a class="btn-img lg glow" href="#offer"><img src="assets/img/btn-hero.png" alt="Start baking — $97"></a>
         </div>
       </section>
     </main>

@@ -72,6 +72,9 @@ Step 1 acceptance:
 - Every section has a purpose.
 - The main CTA exists in the hero, middle, offer stack, and final section.
 - The manifest lists every image the page references.
+- A **hero headline graphic** is in the manifest, plus 1–3 section headline graphics.
+- Copy obeys the **low-text budget** (one promise per section, ≤7-word headlines, no
+  paragraph walls) so every section has room for graphics.
 
 ## Step 2: Asset Generation And Visual Polish
 
@@ -104,8 +107,15 @@ Step 2 acceptance:
 
 Add final behavior and inspect the template like a shippable page.
 
+- **Work in 2–3 polish passes** (build → review the served page → add a layer of
+  depth/motion to every flat section → re-review). Each hero/feature section ends
+  with **≥3 stacked visual layers** (bg media → scrim → accent cutout/glow/
+  particles → content). See the entertainment-designer "Layer every section" doctrine.
+- **Ping-pong looping videos** (`vidkit pingpong`) before `vidkit web` so muted
+  autoplay loops never hard-cut at the seam.
 - Add restrained scroll reveal, hover, parallax, sticky bar, countdown, accordions, or section highlighting only when they improve the sales experience.
-- Polish typography, text wrapping, scrollbar styling, focus rings, selection color, and reduced-motion behavior.
+- Run the **typography polish pass** (below) on every subheadline, lede, and key body line.
+- Polish text wrapping, scrollbar styling, focus rings, selection color, and reduced-motion behavior.
 - Verify no horizontal overflow at 360px, 768px, and 1280px.
 - Check CTA links, FAQ toggles, animations, asset paths, favicon path, and image loading.
 - Keep animations subtle and fast; the page should feel expensive, not busy.
@@ -114,7 +124,50 @@ Step 3 acceptance:
 
 - Desktop, tablet, and mobile are readable and polished.
 - No overlapping UI, clipped text, broken images, dead buttons, or accidental horizontal scrolling.
+- Every subheadline/lede has been through the typography polish pass — none is flat, undersized, or unemphasized.
 - The template folder can be copied as a standalone static design.
+
+### Typography Polish Layer (subheadlines, ledes, key body)
+
+The headline graphic carries the hero, but flat HTML subheadlines are where
+templates read "cheap." Treat every subheadline, lede, and pull-quote as a small
+design object, not a paragraph. This is a deliberate polish pass, not an
+afterthought — run it on each one.
+
+For each subheadline / lede:
+
+- **Pull one phrase to emphasize.** Find the 1–3 words that carry the promise
+  (a number, a noun, the payoff) and lift them — never style the whole line
+  uniformly. Wrap them in `<strong>` (or `<mark>` for a softer accent) and color
+  with the brand accent. Numbers especially ("18 short videos", "$28", "3×")
+  earn the strongest treatment.
+- **Slanted highlight for the hero phrase.** For the single most important phrase,
+  use an art-directed highlighter band instead of plain colored text: dark text
+  on a skewed brand-gradient band, rounded, with a soft accent glow. Pattern:
+
+  ```css
+  .lede strong { position: relative; display: inline-block; z-index: 0;
+    color: <dark-ink>; font-weight: 900; padding: 0.04em 0.32em; text-shadow: none; }
+  .lede strong::before { content: ""; position: absolute; inset: 0; z-index: -1;
+    background: linear-gradient(100deg, var(--accent), var(--accent-deep));
+    transform: skewX(-9deg); border-radius: 4px;
+    box-shadow: 0 6px 18px var(--accent-glow); }
+  ```
+
+  Use exactly one such band per zone — like the image CTA, scarcity earns it impact.
+- **Size up.** Subheadlines are usually too small. Use a fluid `clamp()` that tops
+  out generously (e.g. hero lede `clamp(22px, 2.8vw, 30px)`); err larger.
+- **Tighten the type.** Pull `line-height` in toward `1.3–1.4` and add slightly
+  negative `letter-spacing` (`-0.01em`) so the line reads as a confident statement,
+  not body copy. Leave enough line-height that any highlight band doesn't clip.
+- **Brighten + lift off the background.** Use near-white over dark scenes (not a
+  dimmed alpha), and add a `text-shadow: 0 2px 16px rgba(0,0,0,0.55)` over video/
+  imagery so it stays legible.
+- **Composition.** Add small left/right `padding` so lines never kiss the viewport
+  edge on mobile, and tune top margin (even slightly negative) so the lede nests
+  under the rotated headline graphic instead of floating away from it.
+- **Restraint.** No-orphan-words still applies; keep ledes to ~2 lines; one accent
+  treatment per line. The goal is emphasis with hierarchy, not a rainbow.
 
 ## File Pattern
 

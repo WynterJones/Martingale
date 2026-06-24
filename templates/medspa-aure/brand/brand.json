@@ -1,0 +1,46 @@
+{
+  "name": "Auré",
+  "tagline": "Refreshed, never overdone.",
+  "fictional": true,
+  "seed": 48217,
+  "theme": "serene luxe-clinical (light)",
+  "styleSignature": "Clean luxe beauty photography, soft cinematic daylight with gentle diffused window light and a faint golden glow, warm ivory and cream tones (#f7f1e8, #efe4d4) with champagne gold (#caa765), soft blush rose (#e7c4c0) and deep espresso-plum ink (#3a2a30) accents, dewy luminous skin, polished marble surfaces, water droplets, botanical serums and gold instruments, shallow depth of field, soft focus, airy negative space, calm spa-serene mood, photoreal premium beauty editorial. No text, no words, no letters.",
+  "engines": {
+    "stills": "fal:fal-ai/flux-pro/v1.1-ultra",
+    "icons": "fal:fal-ai/flux-pro/v1.1-ultra (on white) + fal bg + imgkit alpha",
+    "buttons": "fal:fal-ai/recraft-v3 + fal bg + imgkit alpha",
+    "headline": "fal:fal-ai/recraft-v3 / ideogram v3 + fal bg",
+    "logo": "fal:fal-ai/ideogram/v3 + fal bg + imgkit alpha",
+    "video": "fal:fal-ai/kling-video/v2.5-turbo/pro/image-to-video"
+  },
+  "palette": {
+    "paper": "#f7f1e8",
+    "paper2": "#efe4d4",
+    "paperStrong": "#fbf7f0",
+    "ink": "#3a2a30",
+    "ink2": "#5a464d",
+    "muted": "#7a6a6f",
+    "line": "#e3d6c4",
+    "gold": "#caa765",
+    "goldDeep": "#a8854a",
+    "goldSoft": "#e4d2ac",
+    "blush": "#e7c4c0",
+    "blushDeep": "#cf9a96",
+    "plum": "#3a2a30",
+    "plumDeep": "#2a1d22",
+    "cream": "#fdfaf4"
+  },
+  "type": {
+    "display": "Fraunces, Georgia, 'Times New Roman', serif",
+    "body": "'Mulish', ui-sans-serif, system-ui, sans-serif",
+    "displayWeight": 500,
+    "bodyWeight": 400
+  },
+  "radius": "16px",
+  "assets": {
+    "logo": "brand/logo.png",
+    "logoMark": "brand/logo-mark.png",
+    "favicon": "brand/favicon.png",
+    "styleBoard": "brand/style-board.webp"
+  }
+}

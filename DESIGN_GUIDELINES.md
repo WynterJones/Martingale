@@ -40,13 +40,23 @@ rules below sit *on top of* the rubric in the rest of this file. (See
 - **Large accent graphics.** Oversized hero props, gradient orbs/blobs, 3D
   shapes, mascots, cut-out characters, floating chips — generated, placed big and
   bold, layered for depth with parallax. Accent graphics do real design work.
+- **Layer every section (≥3 graphic layers).** Flat text-on-a-fill is the #1 cheap
+  tell. Each hero/feature band stacks: background scene/video → scrim → ambient
+  (particles/orbs/glow) + an accent cutout bleeding off an edge → headline graphic
+  + short copy + CTA. Plus global grain, layered soft shadows, coloured glows.
+- **Bold & low-text — text crowds out graphics.** One promise per section: an
+  optional eyebrow + a ≤7-word headline + ≤1 short line. When a section feels
+  cramped, cut copy, don't shrink the art.
+- **Build in iterative passes.** Structure & assets → review → add a layer of
+  depth/motion to every flat section → re-review. Don't one-shot the polish.
 - **Vary the layout per niche.** Cinematic, bento/UI, split, editorial, card,
   giveaway, VSL/squeeze — pick an archetype that differs from sibling templates.
   Two templates must not feel like one skeleton recolored.
-- **Headline graphics for the hero.** The hero headline earns a designed
-  treatment CSS can't match — a typographic image (gradient/3D/chrome/foil) or
-  CSS text plus a large accent graphic — lifted with `drop-shadow` + glow. Keep
-  an accessible `<h1>` (visually-hidden if the headline is an image).
+- **Juicy headline graphics.** Every template ships a hero headline graphic (a
+  designed treatment CSS can't match — gradient/3D/chrome/foil typography, big and
+  bold) AND 1–3 more for key section headers — lifted with `drop-shadow` + glow +
+  a touch of float/wiggle. Keep an accessible `<h1>`/`<h2>` (visually-hidden if the
+  headline is an image).
 - **Buttons: ONE image CTA, CSS for the rest.** Exactly one art-directed,
   generated image button for the primary CTA (reused for the final CTA if
   wanted); every other button is a premium CSS button (gradient fill, inset

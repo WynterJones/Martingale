@@ -1,0 +1,250 @@
+{
+  "note": "Each prompt = brand.json.styleSignature (or styleSignatureWhiteBg for cutouts) + subjectPrompt. Scenes -> imgkit webp. Cutouts (logo/mark/icons/chrome/host/seal/before-after) -> fal bg removal then imgkit alpha. Image CTA -> recraft-v3 then fal bg + imgkit alpha. One shared --seed (84217) across stills. Single-hue volt-lime accent only.",
+  "seed": 84217,
+  "assets": [
+    {
+      "id": "logo",
+      "type": "logo",
+      "engine": "fal:fal-ai/ideogram/v3",
+      "subjectPrompt": "Horizontal logo lockup on a plain flat MID-GRAY background: a bold angular volt-lime (#c8f135) lightning/surge bolt mark on the LEFT, the heavy condensed wordmark 'SURGE' in WHITE on ONE single line to its right. Athletic, aggressive, sport brand. Only that word, no tagline, no extra icons.",
+      "post": "fal bg -> imgkit alpha --pad 6",
+      "out": "brand/logo.png"
+    },
+    {
+      "id": "logo-mark",
+      "type": "logo",
+      "engine": "fal:fal-ai/ideogram/v3",
+      "subjectPrompt": "A single bold angular volt-lime (#c8f135) lightning/surge bolt emblem inside a rounded charcoal squircle, glossy sport-brand app icon, centered, plain flat mid-gray background, no text.",
+      "post": "fal bg -> imgkit alpha --square --size 512",
+      "out": "brand/logo-mark.png"
+    },
+    {
+      "id": "hero",
+      "type": "scene",
+      "engine": "fal:fal-ai/flux-pro/v1.1-ultra",
+      "subjectPrompt": "A powerful athlete mid-effort in a dark gym, ripping a battle-rope slam or explosive kettlebell swing, rim-lit by hard volt-lime edge light, sweat and chalk dust flying, motion blur, deep negative space on the LEFT for headline copy. Cinematic, raw power.",
+      "aspect": "16:9",
+      "post": "imgkit webp --max 1920",
+      "out": "assets/img/hero.webp"
+    },
+    {
+      "id": "hero-video",
+      "type": "video",
+      "engine": "fal:fal-ai/kling-video/v2.5-turbo/pro/image-to-video",
+      "subjectPrompt": "Seamless looping animation. Preserve artwork. Chalk dust and sparks drift and swirl, sweat sheen glistens, volt-lime rim light pulses subtly, the athlete's muscles flex with micro-motion, slow gentle camera push-in parallax. No large body movements, no scene change, no cuts. Premium sport idle loop.",
+      "post": "vidkit web --max 1280 ; vidkit poster",
+      "out": "assets/video/hero.mp4"
+    },
+    {
+      "id": "workout-video",
+      "type": "video",
+      "engine": "fal:fal-ai/kling-video/v2.5-turbo/pro/image-to-video",
+      "subjectPrompt": "Vertical 9:16 seamless loop. Preserve artwork. Athlete reps a clean kettlebell/dumbbell movement with controlled tempo, chalk dust drifts, volt rim light shimmers, subtle camera bob. Seamless loop, no cuts.",
+      "aspect": "9:16",
+      "post": "vidkit web --max 720 ; vidkit poster",
+      "out": "assets/video/workout.mp4"
+    },
+    {
+      "id": "workout-still",
+      "type": "scene",
+      "engine": "fal:fal-ai/flux-pro/v1.1-ultra",
+      "subjectPrompt": "Vertical portrait: an athlete mid-rep with a kettlebell in a dark gym, rim-lit volt-lime, chalk dust, sweat, motion energy, dramatic.",
+      "aspect": "9:16",
+      "post": "imgkit webp --max 900 (poster source)",
+      "out": "assets/img/workout-still.webp"
+    },
+    {
+      "id": "host",
+      "type": "cutout",
+      "engine": "fal:fal-ai/flux-pro/v1.1-ultra",
+      "subjectPrompt": "Coach Mara Vance: a confident athletic woman head strength coach in her mid-30s, fitted charcoal training top, arms crossed, strong posture, slight smile, rim-lit with volt-lime edge light, full upper body, looking at camera. Plain flat mid-gray studio background.",
+      "aspect": "3:4",
+      "post": "fal bg -> imgkit alpha --size 1000",
+      "out": "assets/img/host.png"
+    },
+    {
+      "id": "host-scene",
+      "type": "scene",
+      "engine": "fal:fal-ai/flux-pro/v1.1-ultra",
+      "subjectPrompt": "Coach Mara Vance coaching in a dark gym, holding a clipboard/tablet, volt-lime rim light, athletic, encouraging, cinematic, space on one side.",
+      "aspect": "4:3",
+      "post": "imgkit webp --max 1400",
+      "out": "assets/img/host-scene.webp"
+    },
+    {
+      "id": "before-after-1",
+      "type": "cutout",
+      "engine": "fal:fal-ai/flux-pro/v1.1-ultra",
+      "subjectPrompt": "Side-by-side transformation of a fictional man in his 30s: LEFT softer/heavier physique, RIGHT lean and athletic, both in matching charcoal gym shorts, studio rim-lit volt-lime, dramatic. Plain flat mid-gray background.",
+      "aspect": "4:3",
+      "post": "imgkit webp --max 1100",
+      "out": "assets/img/transform-1.webp"
+    },
+    {
+      "id": "before-after-2",
+      "type": "scene",
+      "engine": "fal:fal-ai/flux-pro/v1.1-ultra",
+      "subjectPrompt": "Side-by-side transformation of a fictional woman in her 30s: LEFT softer physique, RIGHT toned and strong, matching charcoal activewear, studio rim-lit volt-lime. Plain flat mid-gray background.",
+      "aspect": "4:3",
+      "post": "imgkit webp --max 1100",
+      "out": "assets/img/transform-2.webp"
+    },
+    {
+      "id": "before-after-3",
+      "type": "scene",
+      "engine": "fal:fal-ai/flux-pro/v1.1-ultra",
+      "subjectPrompt": "Side-by-side transformation of a fictional man in his 40s: LEFT heavier dad-bod, RIGHT defined and fit, matching charcoal gym wear, studio rim-lit volt-lime. Plain flat mid-gray background.",
+      "aspect": "4:3",
+      "post": "imgkit webp --max 1100",
+      "out": "assets/img/transform-3.webp"
+    },
+    {
+      "id": "btn-cta",
+      "type": "image-button",
+      "engine": "fal:fal-ai/recraft-v3",
+      "subjectPrompt": "A premium wide horizontal rounded-rectangle call-to-action button filling the frame, solid volt-lime (#c8f135) gradient fill with a soft bevel and electric sheen, the text 'JOIN THE CHALLENGE' in heavy bold condensed CHARCOAL-BLACK ink integrated into the button material on a SINGLE line, crisp professional sport UI, soft drop shadow, plain pure white background, no emoji, no extra icons.",
+      "imgsize": "1600x520",
+      "post": "fal bg -> imgkit alpha --pad 6",
+      "out": "assets/img/btn-cta.png"
+    },
+    {
+      "id": "ic-clock",
+      "type": "icon",
+      "engine": "fal:fal-ai/flux-pro/v1.1-ultra",
+      "subjectPrompt": "A bold glossy 3D stopwatch/timer icon, charcoal body with volt-lime (#c8f135) accent ring and hands, athletic sport-app icon, single centered object. Part of a cohesive icon set with even chunky forms.",
+      "post": "fal bg -> imgkit alpha --square --pad 28 --size 256",
+      "out": "assets/img/ic-clock.png"
+    },
+    {
+      "id": "ic-dumbbell",
+      "type": "icon",
+      "engine": "fal:fal-ai/flux-pro/v1.1-ultra",
+      "subjectPrompt": "A bold glossy 3D dumbbell icon, charcoal metal with volt-lime (#c8f135) accent, athletic sport-app icon, single centered object. Part of a cohesive icon set with even chunky forms.",
+      "post": "fal bg -> imgkit alpha --square --pad 28 --size 256",
+      "out": "assets/img/ic-dumbbell.png"
+    },
+    {
+      "id": "ic-meal",
+      "type": "icon",
+      "engine": "fal:fal-ai/flux-pro/v1.1-ultra",
+      "subjectPrompt": "A bold glossy 3D meal-plan plate-with-fork icon, charcoal with volt-lime (#c8f135) accent, athletic sport-app icon, single centered object. Cohesive icon set, even chunky forms.",
+      "post": "fal bg -> imgkit alpha --square --pad 28 --size 256",
+      "out": "assets/img/ic-meal.png"
+    },
+    {
+      "id": "ic-app",
+      "type": "icon",
+      "engine": "fal:fal-ai/flux-pro/v1.1-ultra",
+      "subjectPrompt": "A bold glossy 3D smartphone-app icon showing a workout screen, charcoal device with volt-lime (#c8f135) accent screen, athletic sport-app icon, single centered object. Cohesive icon set, even chunky forms.",
+      "post": "fal bg -> imgkit alpha --square --pad 28 --size 256",
+      "out": "assets/img/ic-app.png"
+    },
+    {
+      "id": "ic-coach",
+      "type": "icon",
+      "engine": "fal:fal-ai/flux-pro/v1.1-ultra",
+      "subjectPrompt": "A bold glossy 3D whistle/coach icon, charcoal with volt-lime (#c8f135) accent, athletic sport-app icon, single centered object. Cohesive icon set, even chunky forms.",
+      "post": "fal bg -> imgkit alpha --square --pad 28 --size 256",
+      "out": "assets/img/ic-coach.png"
+    },
+    {
+      "id": "ic-community",
+      "type": "icon",
+      "engine": "fal:fal-ai/flux-pro/v1.1-ultra",
+      "subjectPrompt": "A bold glossy 3D community/people-group icon, charcoal with volt-lime (#c8f135) accent, athletic sport-app icon, single centered object. Cohesive icon set, even chunky forms.",
+      "post": "fal bg -> imgkit alpha --square --pad 28 --size 256",
+      "out": "assets/img/ic-community.png"
+    },
+    {
+      "id": "ic-fire",
+      "type": "icon",
+      "engine": "fal:fal-ai/flux-pro/v1.1-ultra",
+      "subjectPrompt": "A bold glossy 3D flame/burn icon, volt-lime (#c8f135) flame with charcoal base, athletic sport-app icon, single centered object. Cohesive icon set, even chunky forms.",
+      "post": "fal bg -> imgkit alpha --square --pad 28 --size 256",
+      "out": "assets/img/ic-fire.png"
+    },
+    {
+      "id": "chk-check",
+      "type": "chrome",
+      "engine": "fal:fal-ai/flux-pro/v1.1-ultra",
+      "subjectPrompt": "A single bold glossy volt-lime (#c8f135) checkmark, thick rounded, slight 3D bevel, single centered object.",
+      "post": "fal bg -> imgkit alpha --square --pad 30 --size 200",
+      "out": "assets/img/chk-check.png"
+    },
+    {
+      "id": "chk-arrow",
+      "type": "chrome",
+      "engine": "fal:fal-ai/flux-pro/v1.1-ultra",
+      "subjectPrompt": "A single bold glossy volt-lime (#c8f135) right-pointing arrow, thick rounded, slight 3D bevel, single centered object.",
+      "post": "fal bg -> imgkit alpha --square --pad 30 --size 200",
+      "out": "assets/img/chk-arrow.png"
+    },
+    {
+      "id": "chk-play",
+      "type": "chrome",
+      "engine": "fal:fal-ai/flux-pro/v1.1-ultra",
+      "subjectPrompt": "A single bold glossy volt-lime (#c8f135) play-button triangle inside a soft charcoal circle, slight 3D bevel, single centered object.",
+      "post": "fal bg -> imgkit alpha --square --pad 24 --size 256",
+      "out": "assets/img/chk-play.png"
+    },
+    {
+      "id": "chk-bolt",
+      "type": "chrome",
+      "engine": "fal:fal-ai/flux-pro/v1.1-ultra",
+      "subjectPrompt": "A single bold glossy volt-lime (#c8f135) lightning bolt, slight 3D bevel, energetic, single centered object.",
+      "post": "fal bg -> imgkit alpha --square --pad 30 --size 200",
+      "out": "assets/img/chk-bolt.png"
+    },
+    {
+      "id": "chk-star",
+      "type": "chrome",
+      "engine": "fal:fal-ai/flux-pro/v1.1-ultra",
+      "subjectPrompt": "A single bold glossy volt-lime (#c8f135) five-point star, slight 3D bevel, single centered object.",
+      "post": "fal bg -> imgkit alpha --square --pad 30 --size 200",
+      "out": "assets/img/chk-star.png"
+    },
+    {
+      "id": "seal",
+      "type": "cutout",
+      "engine": "fal:fal-ai/flux-pro/v1.1-ultra",
+      "subjectPrompt": "A premium circular guarantee medallion/seal, brushed charcoal metal with a volt-lime (#c8f135) embossed laurel ring and inner ridges, empty smooth center for overlaid text, sport-grade emblem, single centered object.",
+      "post": "fal bg -> imgkit alpha --square --size 600",
+      "out": "assets/img/seal.png"
+    },
+    {
+      "id": "avatar-1",
+      "type": "cutout",
+      "engine": "fal:fal-ai/flux-pro/v1.1-ultra",
+      "subjectPrompt": "Headshot of a fictional fit man in his 30s, friendly, athletic, charcoal gym top, rim-lit volt-lime. Plain flat mid-gray background.",
+      "aspect": "1:1",
+      "post": "fal bg -> imgkit alpha --square --size 320",
+      "out": "assets/img/avatar-1.png"
+    },
+    {
+      "id": "avatar-2",
+      "type": "cutout",
+      "engine": "fal:fal-ai/flux-pro/v1.1-ultra",
+      "subjectPrompt": "Headshot of a fictional fit woman in her 30s, friendly, athletic, charcoal activewear, rim-lit volt-lime. Plain flat mid-gray background.",
+      "aspect": "1:1",
+      "post": "fal bg -> imgkit alpha --square --size 320",
+      "out": "assets/img/avatar-2.png"
+    },
+    {
+      "id": "avatar-3",
+      "type": "cutout",
+      "engine": "fal:fal-ai/flux-pro/v1.1-ultra",
+      "subjectPrompt": "Headshot of a fictional fit man in his 40s, confident, athletic, charcoal gym top, rim-lit volt-lime. Plain flat mid-gray background.",
+      "aspect": "1:1",
+      "post": "fal bg -> imgkit alpha --square --size 320",
+      "out": "assets/img/avatar-3.png"
+    },
+    {
+      "id": "noise",
+      "type": "texture",
+      "engine": "local",
+      "subjectPrompt": "Tiny tiled monochrome noise PNG generated locally for the grain overlay.",
+      "post": "python PIL",
+      "out": "assets/img/noise.png"
+    }
+  ]
+}

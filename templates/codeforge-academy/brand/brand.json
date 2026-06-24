@@ -1,0 +1,43 @@
+{
+  "name": "CodeForge",
+  "tagline": "Forge real software. Become the developer you're meant to be.",
+  "fictional": true,
+  "seed": 88231,
+  "theme": "dark cinematic fantasy — obsidian, molten gold, ember & dragon-jade (a coding-course 'forge' metaphor)",
+  "styleSignature": "cinematic premium fantasy concept art, dark obsidian and molten-gold dragon theme, dramatic ember-orange and gold rim lighting against near-black backgrounds, glowing forge embers and floating sparks, jade-green dragon-scale accents and deep crimson, volcanic atmosphere with smoke and god rays, ornate gold filigree, layered depth, shallow depth of field, hyper-detailed, professional AAA fantasy game key-art quality, strong focal point, rich saturated color. No text, no words, no letters.",
+  "engines": {
+    "stills": "fal:fal-ai/flux-pro/v1.1-ultra",
+    "text": "fal:fal-ai/ideogram/v3",
+    "video": "fal:fal-ai/kling-video/v2.5-turbo/pro/image-to-video",
+    "cutout": "fal:fal-ai/birefnet/v2 (bg removal)"
+  },
+  "palette": {
+    "bg": "#0b0708",
+    "bg2": "#150b0c",
+    "panel": "#1d1012",
+    "panel2": "#251417",
+    "ink": "#f7ecd6",
+    "muted": "rgba(247,236,214,0.66)",
+    "gold": "#f4c044",
+    "goldDeep": "#b9802a",
+    "ember": "#ff6a2b",
+    "emberDeep": "#d83417",
+    "jade": "#36c08a",
+    "crimson": "#c01f2f",
+    "line": "rgba(244,192,68,0.16)"
+  },
+  "type": {
+    "display": "\"Cinzel\", \"Inter\", ui-serif, Georgia, serif",
+    "body": "\"Inter\", ui-sans-serif, system-ui, sans-serif",
+    "displayWeight": 800,
+    "bodyWeight": 400
+  },
+  "radius": "16px",
+  "assets": {
+    "logo": "brand/logo.png",
+    "logoMark": "brand/logo-mark.png",
+    "favicon": "brand/favicon.png",
+    "ogImage": "brand/og-image.png",
+    "heroVideo": "assets/video/hero.mp4"
+  }
+}

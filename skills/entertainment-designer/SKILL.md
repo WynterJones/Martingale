@@ -144,15 +144,20 @@ Image-to-video keeps the artwork and animates it:
 ```bash
 python3 tools/fal.py video --image raw/hero.jpg --duration 5 --aspect 16:9 \
   --prompt "<animation prompt below>" --out raw/hero.mp4
-# make it web-ready (≈20 MB Kling clip -> ~1 MB):
-python3 tools/vidkit.py web    raw/hero.mp4 assets/video/hero.mp4 --max 1280
-python3 tools/vidkit.py poster raw/hero.mp4 assets/video/hero-poster.jpg
+# make it web-ready (≈20 MB Kling clip -> ~1 MB) AND seamless:
+python3 tools/vidkit.py pingpong raw/hero.mp4 raw/hero-pp.mp4       # forward+reverse: no seam
+python3 tools/vidkit.py web      raw/hero-pp.mp4 assets/video/hero.mp4 --max 1280
+python3 tools/vidkit.py poster   raw/hero.mp4 assets/video/hero-poster.jpg
 ```
 
 - Default `fal-ai/kling-video/v2.5-turbo/pro/image-to-video`; takes 1–5 min
   (run in background). `ltx-video` / Kling `v1.6/standard` are cheaper.
-- ALWAYS compress with `vidkit web` before embedding, and generate a `poster`
-  frame for instant paint + a fallback.
+- **Ping-pong every idle/background loop.** Generated clips rarely loop cleanly —
+  the first and last frames don't match, so a plain loop visibly hard-cuts at the
+  seam. Run **`vidkit pingpong`** (forward-then-reversed boomerang) so start = end
+  and the muted autoplay `<video>` loops perfectly smooth. (`vidkit loop` cross-
+  fades the tail over the head as an alternative for clips with strong directional
+  motion.) Then `vidkit web` to compress, and always a `poster`.
 
 ### Animation prompt template (looping idle)
 
@@ -322,6 +327,53 @@ shadow tokens.
 **6. Colour.** Restrained accent + rich neutrals; use `color-mix()` for tints;
 duotone hero imagery via blend modes; never more than ~2 accent hues.
 
+## Layer every section (graphic depth — the flagship bar)
+
+Premium = depth. A flat section (text on a solid background) is the #1 "cheap"
+tell. **Every hero and feature section gets ≥3 stacked visual layers.** The
+recurring layer kit (all in the fishing flagship — steal it):
+
+1. **Background** — a generated scene/photo or a muted video loop, `object-fit:
+   cover`, usually a `band-bg` with **multi-speed parallax** (`data-speed`).
+2. **Scrim** — a gradient + radial overlay so copy clears AA over the brightest
+   part of the media.
+3. **Ambient layer** — a particle/spark canvas, drifting gradient orbs, or a
+   shimmer sweep.
+4. **Accent cutouts** — a LARGE transparent generated prop bleeding off an edge
+   (parallaxed), a **radial glow halo** behind focal media (`::before` radial-
+   gradient), floating chips/emblems.
+5. **Foreground** — the headline graphic + minimal copy + the CTA.
+6. **Global** — a tiled film-grain overlay (`body::after`, ~6% opacity, blend
+   overlay), layered soft shadows (a 2-shadow stack, not one box-shadow), coloured
+   glows via `drop-shadow`.
+
+If a section is just a headline and a paragraph on a flat fill, it isn't done —
+add a background scene, a glow, a parallax prop, or an accent cutout.
+
+## Bold & low-text (text is the enemy of graphics)
+
+These are galleries, not essays. **Every extra sentence of UI copy steals room and
+attention from the art.** Budget per section: an optional eyebrow + ONE headline
+(≤ ~7 words) + at most ONE short lede/subhead (≤ ~14 words); cards get a label +
+one ≤14-word line. No paragraph walls, no three-line body blocks. When a section
+feels cramped or hard to fit graphics into, **cut the copy — don't shrink the
+art.** Lead with the image; overlay short, punchy copy.
+
+## Iterate in passes (don't one-shot the polish)
+
+The flagship's CSS literally carries a second "high-end polish" pass appended on
+top of the base build — match that. Treat polish as **2–3 deliberate passes**:
+
+- **Pass 1 — structure & assets:** sections, copy, every generated asset placed.
+- **Pass 2 — depth & motion:** review the built page (read the files / serve it),
+  then add a layer to EVERY flat section — a headline graphic, a glow, a parallax
+  prop, a grain overlay, hover lift, a count-up, a shine sweep.
+- **Pass 3 — micro-detail & QA:** re-review; fix contrast/orphans/spacing, add the
+  small delights (mascot bob, scroll-scrub progress, magnetic CTA), then run the
+  responsive/contrast/motion checklist.
+
+Stop when it feels alive and dense with graphics, not when it merely works.
+
 ## Make graphics & icons LARGE (impact over timidity)
 
 Undersized graphics read as cheap. Go bigger than feels safe:
@@ -335,10 +387,12 @@ Undersized graphics read as cheap. Go bigger than feels safe:
   frames with layered shadow. Generate stills at high res so they stay crisp big.
 
 ## Best background removal
-Use **`tools/fal.py bg`** (default `fal-ai/birefnet/v2`) — SOTA matting with soft
-anti-aliased alpha (0–255), clean on hair/edges, keeps subject colours that match
-the backdrop. Always follow with `tools/imgkit.py alpha` to trim/resize. (Generate
-the subject at high resolution so the cutout stays sharp when placed large.)
+Use **`tools/fal.py bg`** (default `fal-ai/bria/background/remove` — Bria RMBG, the
+cleanest edges on hair/fur/fingers; far cheaper than the remove.bg API). Soft
+anti-aliased alpha (0–255), keeps subject colours that match the backdrop. Accepts
+positional `bg IN OUT`. Always follow with `tools/imgkit.py alpha` to trim/resize;
+generate the subject at high resolution so the cutout stays sharp when placed large.
+(`fal-ai/birefnet/v2` is a cheaper fallback; `imgkit keyout` is the no-API fallback.)
 
 ## Buttons: ONE great image CTA + CSS buttons for the rest
 
@@ -351,22 +405,36 @@ Rendering every button as an image is what made past templates look off. The rul
   ghost). CSS buttons stay crisp at any size, recolour instantly, and never show
   matting artefacts.
 
-### The one image CTA — use Recraft V3
-Generate buttons with **`fal-ai/recraft-v3`** (a design model) — it renders crisp
-text *integrated into* the button far better than general text-image models, with
-none of the flat "Arial-on-an-image" look. Recraft uses **`--imgsize WIDTHxHEIGHT`**
-(not `--aspect`); pass a **wide** size or you get a circle. Then **`fal.py bg`** +
-`imgkit alpha`. Place as `<a class="btn-cta"><img alt="<label>"></a>`; add hover/
-press/glow in CSS only.
+### The one image CTA — art-direct it (don't ship a plain pill)
+The image CTA is a hero asset, not a UI default — make it *interesting*. Use
+**`fal-ai/recraft-v3`** (crisp material-integrated text, none of the flat
+"Arial-on-an-image" look). `--imgsize WIDTHxHEIGHT` (not `--aspect`) — pass a
+**wide** size or you get a circle. Then **`fal.py bg`** + `imgkit alpha`. Place as
+`<a class="btn-cta"><img alt="<label>"></a>`; add hover/press/glow in CSS only.
+
+Pick a **finish from the brand**, don't default to candy-gloss: embossed polished
+gold / rose-gold / chrome, brushed steel, glossy glass/gel, soft-matte 3D, foil-
+stamp, neon-outline, liquid-metal. **Render the LABEL in that same material** —
+embossed/extruded, catching the same light — and **fuse a small brand motif/emblem
+into one end** for character. Depth, bevel, a specular highlight sweep, and a soft
+contact shadow are what make it read premium.
   ```bash
   python3 tools/fal.py image --model fal-ai/recraft-v3 --imgsize 1600x520 \
-    --prompt "A premium glossy 3D call-to-action button, one wide horizontal rounded-rectangle <brand> gradient pill spanning the full width, soft bevel and warm sheen, the text '<LABEL>' in bold white on a SINGLE line, crisp professional UI, soft drop shadow, plain white background" \
+    --prompt "Premium <FINISH> call-to-action button: ONE wide horizontal rounded-rectangle pill filling the frame, <BRAND colour/material> with a thick beveled edge, top sheen, soft inner glow and a crisp diagonal specular highlight; the words '<LABEL>' on ONE single line rendered in the SAME material as the button (embossed/extruded, same lighting) — never a flat sans-serif pasted on top; a small <BRAND motif> emblem fused into the left end; rich depth, soft contact shadow under the pill, plain pure-white background. No second button, no extra text, no emoji, no punctuation." \
     --out raw/btn-cta.jpg
   python3 tools/fal.py bg raw/btn-cta.jpg raw/btn-cta-cut.png
   python3 tools/imgkit.py alpha raw/btn-cta-cut.png assets/img/btn-cta.png --pad 6
   ```
-  Generate **2–3 and keep the best** (crisp text, wide pill, label reads against
-  its own fill). Mirror the visible words in `alt`.
+  Generate **2–3 and keep the best** (crisp text, wide pill, label reads AA on its
+  own fill, the material is interesting). Mirror the visible words in `alt`.
+
+**Even better — the hybrid CTA (what the flagship uses).** Instead of baking
+everything into one flat image, build the CTA as a CSS pill and drop a **generated
+transparent prop/emblem cutout inside it** (e.g. the fishing template's lure that
+*swings* on a loop), plus a CSS shine-sweep and the label in the display font. You
+get a richer, animated, fully recolourable button with a real generated object in
+it — often more premium than a baked pill, and it never shows matting artefacts.
+Reserve a fully-baked image button for when the typographic treatment is the star.
 
   **Need several image buttons? Generate a SET and crop.** Ask Recraft for a
   vertical UI kit of 2–3 stacked buttons in one **portrait** image, bg-remove the
@@ -410,12 +478,16 @@ on its hover background).
   .btn-ghost { background:transparent; color:var(--ink); border:1px solid var(--line); box-shadow:none; }
   ```
 
-## Headline graphics (make the hero stand out)
+## Headline graphics (every template ships a juicy one)
 
-Plain text is fine for most sections, but the **hero (and key section headers)
-deserve a headline graphic** — a designed treatment CSS text can't match. You can
-fold a small course/product graphic (ebook, play badge) into the lockup so type +
-icon read as one piece. Two approaches:
+**Every template MUST ship a hero headline graphic** — the single biggest "this
+looks designed" lever — and SHOULD ship **2–3 more for key section headers** (the
+flagship has a hero + a showcase + a kit headline). A headline graphic is a
+designed treatment CSS text can't match: gradient/3D/chrome/foil lettering, a
+custom display cut, type fused with a small product/emblem graphic. Make it
+**juicy** — big, bold, the focal point of its band. You can fold a small product
+graphic (ebook, play badge, emblem) into the lockup so type + icon read as one
+piece. Two approaches:
 
 - **Typographic headline image** (`fal-ai/ideogram/v3` or `recraft-v3`): the key
   phrase rendered with a gradient / 3D / chrome / foil treatment on a plain
@@ -431,9 +503,13 @@ icon read as one piece. Two approaches:
   generated graphic behind/around it (gradient orb, 3D object, underline swash,
   glow shape) so it pops.
 
-Either way, lift it with **CSS**: `filter: drop-shadow(0 14px 30px <glow>)` on the
-graphic, gradient `background-clip:text` on accent words, `text-wrap:balance`, and
-a soft glow layer. A bold headline with drop-shadow + glow reads premium.
+Either way, **lift it with CSS**: a layered `filter: drop-shadow(0 16px 32px
+rgba(0,0,0,.55)) drop-shadow(0 0 34px <accent-glow>)`, a slight rotate + a slow
+`wiggle`/float keyframe (the flagship's hero headline tilts ~-3° and gently bobs),
+gradient `background-clip:text` on accent words, `text-wrap:balance`, and a soft
+glow layer behind it. Keep an accessible visually-hidden `<h1>`/`<h2>` with the
+same words. A bold headline with drop-shadow + glow + a touch of motion reads
+premium; flat live text does not.
 
 ## Badges, seals & small text graphics
 - **Badges / seals / emblems** → generate on a plain background, `fal.py bg`. For

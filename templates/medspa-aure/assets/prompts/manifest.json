@@ -1,0 +1,36 @@
+{
+  "note": "Each prompt = brand.json.styleSignature + subjectPrompt. Stills (scenes/portraits) generated on fal flux-pro v1.1-ultra -> imgkit webp. Icons/seal/CTA generated on a SOLID pure-white background (recraft-v3 where available, Gemini gemini-2.5-flash-image as the no-API fallback after the fal balance was exhausted mid-build) -> imgkit keyout to transparent PNG. Logo/mark via ideogram v3 -> fal bg -> imgkit alpha (cream lockup for dark sections = logo-light.png; espresso-plum lockup for light sections = logo.png). Hero video via kling -> vidkit web+poster. Seed 48217 reused across stills for tonal consistency.",
+  "seed": 48217,
+  "assets": [
+    { "id": "logo", "type": "logo", "engine": "fal:ideogram/v3 + fal bg", "subjectPrompt": "Horizontal lockup: gold droplet emblem + 'Auré' wordmark in espresso-plum serif on white (for light placements).", "post": "fal bg + imgkit alpha --pad 8 --size 900", "out": "brand/logo.png" },
+    { "id": "logo-light", "type": "logo", "engine": "fal:ideogram/v3 + fal bg", "subjectPrompt": "Same lockup with cream/ivory wordmark (for dark plum sections).", "post": "fal bg + imgkit alpha --pad 8 --size 900", "out": "brand/logo-light.png" },
+    { "id": "logo-mark", "type": "logo", "engine": "fal:ideogram/v3 + fal bg", "subjectPrompt": "Gold dewy droplet softly forming a serif A, polished gold on white.", "post": "fal bg + imgkit alpha --pad 24 --size 512 --square", "out": "brand/logo-mark.png" },
+    { "id": "favicon", "type": "logo", "engine": "imgkit favicon", "subjectPrompt": "Square crop of the gold droplet-A mark.", "post": "imgkit favicon --size 256", "out": "brand/favicon.png" },
+    { "id": "style-board", "type": "scene", "engine": "fal:flux-pro/v1.1-ultra", "subjectPrompt": "Serene med-spa marble vignette: dewy-skinned woman in profile, serums, gold instrument, water droplets.", "post": "imgkit webp --max 1600 --quality 86", "out": "brand/style-board.webp" },
+
+    { "id": "hero", "type": "scene", "engine": "fal:flux-pro/v1.1-ultra", "subjectPrompt": "Hero portrait: calm radiant woman ~40 with naturally glowing dewy refreshed skin, soft natural makeup, window daylight, faint golden glow.", "post": "imgkit webp --max 1400 --quality 86", "out": "assets/img/hero.webp" },
+    { "id": "hero-video", "type": "video", "engine": "fal:kling-video/v2.5-turbo/pro", "subjectPrompt": "Seamless idle loop of the hero portrait: slow breath, one soft blink, light shimmer on cheekbone, botanical sway, floating bokeh.", "post": "vidkit web --max 900 + vidkit poster", "out": "assets/video/hero.mp4" },
+
+    { "id": "promise", "type": "scene", "engine": "fal:flux-pro/v1.1-ultra", "subjectPrompt": "Serene treatment moment: reclining woman, glowing dewy skin, clinician's gloved hands applying luminous serum to her cheek, glistening droplets.", "post": "imgkit webp --max 1100 --quality 86", "out": "assets/img/promise.webp" },
+
+    { "id": "before", "type": "scene", "engine": "fal:flux-pro/v1.1-ultra", "subjectPrompt": "Straight-on close-up, woman ~45, BEFORE: dull, tired, uneven skin with fine lines, flat light, no makeup.", "post": "imgkit webp --max 900 --quality 86", "out": "assets/img/before.webp" },
+    { "id": "after", "type": "scene", "engine": "fal:flux-pro/v1.1-ultra", "subjectPrompt": "Same woman/framing, AFTER: luminous dewy hydrated plump refreshed skin, softened fine lines, even radiant glow, still natural.", "post": "imgkit webp --max 900 --quality 86", "out": "assets/img/after.webp" },
+
+    { "id": "t-injectables", "type": "scene", "engine": "fal:flux-pro/v1.1-ultra", "subjectPrompt": "Gold-tipped fine aesthetics instrument on cream marble beside a dewy droplet and a blush peony petal.", "post": "imgkit webp --max 800 --quality 84", "out": "assets/img/t-injectables.webp" },
+    { "id": "t-facial", "type": "scene", "engine": "fal:flux-pro/v1.1-ultra", "subjectPrompt": "Signature facial: glistening serum and a jade-gold gua sha gliding on a woman's dewy glowing cheek.", "post": "imgkit webp --max 800 --quality 84", "out": "assets/img/t-facial.webp" },
+    { "id": "t-laser", "type": "scene", "engine": "fal:flux-pro/v1.1-ultra", "subjectPrompt": "Gentle laser skin rejuvenation: sleek cream-and-gold device emitting a soft warm glow near a luminous cheek.", "post": "imgkit webp --max 800 --quality 84", "out": "assets/img/t-laser.webp" },
+    { "id": "t-skinhealth", "type": "scene", "engine": "fal:flux-pro/v1.1-ultra", "subjectPrompt": "Skin-health flatlay: amber/frosted serum droppers, botanical leaves, ivory linen, water droplets on cream marble.", "post": "imgkit webp --max 800 --quality 84", "out": "assets/img/t-skinhealth.webp" },
+
+    { "id": "membership", "type": "scene", "engine": "fal:flux-pro/v1.1-ultra", "subjectPrompt": "Glow Membership still life: cream-and-gold gift box, trio of botanical serums, blush peony, ivory linen, gold key-card.", "post": "imgkit webp --max 1000 --quality 86", "out": "assets/img/membership.webp" },
+    { "id": "cta-band", "type": "scene", "engine": "fal:flux-pro/v1.1-ultra", "subjectPrompt": "Wide sunlit luxury clinic interior, cream marble, blush orchid, gold accents, tall window, airy center negative space.", "post": "imgkit webp --max 1800 --quality 84", "out": "assets/img/cta-band.webp" },
+
+    { "id": "host", "type": "portrait", "engine": "fal:flux-pro/v1.1-ultra", "subjectPrompt": "Elegant lead clinician ~44 in tailored ivory coat over blush blouse, gold necklace, low chignon, reassuring smile, clean cream studio bg.", "post": "imgkit webp --max 1100 (framed) + crop --box head -> host-head.webp for the widget", "out": "assets/img/host.webp" },
+    { "id": "host-head", "type": "portrait", "engine": "imgkit crop", "subjectPrompt": "Head-and-shoulders crop of the host for the circular sticky widget.", "post": "imgkit crop + webp --max 460", "out": "assets/img/host-head.webp" },
+
+    { "id": "btn-cta", "type": "button", "engine": "gemini:gemini-2.5-flash-image (fallback) + imgkit keyout", "subjectPrompt": "Wide champagne-gold pill, embossed espresso-plum serif text 'Book Consultation' on one line. The ONE image CTA (reused for hero + final).", "post": "imgkit keyout --fuzz 16 --trim --pad 10", "out": "assets/img/btn-cta.png" },
+
+    { "id": "seal", "type": "seal", "engine": "gemini:gemini-2.5-flash-image (fallback) + imgkit keyout", "subjectPrompt": "Embossed champagne-gold laurel medallion with an empty center (number overlaid as HTML).", "post": "imgkit keyout --fuzz 10 --trim --pad 20 --size 560", "out": "assets/img/seal.png" },
+
+    { "id": "icon-set", "type": "icon", "engine": "gemini:gemini-2.5-flash-image (fallback) + imgkit keyout", "subjectPrompt": "One cohesive family of thin champagne-gold line icons on white: injectables (droplet+sparkle), facial (leaf sprig), laser (device+rays), skin (glowing face), consult (speech bubbles), plan (clipboard+leaf), glow (sun), check (tick-in-ring), play (triangle-in-ring), star, quote.", "post": "imgkit keyout --fuzz 12 --trim --pad 30 --size 256", "out": "assets/img/ic-*.png" }
+  ]
+}

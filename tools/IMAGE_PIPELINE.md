@@ -28,11 +28,12 @@ python3 tools/imgkit.py webp raw/hero.jpg assets/img/hero.webp --max 1920
 # looping video from a still (1-5 min; run in background), then make web-weight
 python3 tools/fal.py video --image raw/hero.jpg --duration 5 --aspect 16:9 \
   --prompt "<looping idle animation prompt>" --out raw/hero.mp4
-python3 tools/vidkit.py web    raw/hero.mp4 assets/video/hero.mp4 --max 1280  # ~20MB -> ~1MB
-python3 tools/vidkit.py poster raw/hero.mp4 assets/video/hero-poster.jpg
+python3 tools/vidkit.py pingpong raw/hero.mp4 raw/hero-pp.mp4                 # seamless: no seam-cut
+python3 tools/vidkit.py web      raw/hero-pp.mp4 assets/video/hero.mp4 --max 1280  # ~20MB -> ~1MB
+python3 tools/vidkit.py poster   raw/hero.mp4 assets/video/hero-poster.jpg
 ```
 
-- **Transparency = `fal.py bg` (BiRefNet), not colour-keying.** Generate the
+- **Transparency = `fal.py bg` (Bria matting, best edges), not colour-keying.** Generate the
   subject, then matte it and trim:
   ```bash
   python3 tools/fal.py bg raw/mascot.jpg raw/mascot-cut.png

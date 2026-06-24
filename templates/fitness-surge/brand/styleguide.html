@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SURGE — Brand Styleguide</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0c0d0f; --paper:#15171b; --paper-strong:#1d2026; --muted:#9aa1ab; --chalk:#f4f6f2;
+    --line:rgba(154,161,171,0.16); --line-strong:rgba(154,161,171,0.30);
+    --volt:#c8f135; --volt-deep:#9bbe16; --volt-soft:#e2fa84; --volt-glow:rgba(200,241,53,0.35);
+    --display:'Anton',sans-serif; --body:'Archivo',sans-serif;
+  }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:var(--ink); color:var(--chalk); font-family:var(--body); }
+  .wrap{ width:min(1140px, calc(100% - 40px)); margin:0 auto; padding:56px 0 110px; }
+  header.sg{ display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; padding-bottom:28px; border-bottom:1px solid var(--line); }
+  header.sg img{ height:40px; }
+  header.sg .tag{ color:var(--muted); font-weight:700; letter-spacing:.04em; }
+  h2.sg{ font-family:var(--display); text-transform:uppercase; letter-spacing:.02em; font-weight:400; font-size:13px; color:var(--volt); margin:54px 0 18px; }
+  .panel{ background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:26px; }
+  /* swatches */
+  .swatches{ display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:14px; }
+  .sw{ border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+  .sw .chip{ height:80px; }
+  .sw .meta{ padding:10px 12px; font-size:12px; }
+  .sw .meta b{ display:block; font-size:13px; }
+  .sw .meta span{ color:var(--muted); font-family:monospace; }
+  /* type */
+  .type-row{ border-bottom:1px solid var(--line); padding:16px 0; }
+  .type-row:last-child{ border-bottom:0; }
+  .disp{ font-family:var(--display); text-transform:uppercase; line-height:.95; }
+  /* icons */
+  .iconset{ display:grid; grid-template-columns:repeat(auto-fill,minmax(110px,1fr)); gap:14px; }
+  .ic{ background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:18px; text-align:center; }
+  .ic img{ width:60px; height:60px; object-fit:contain; }
+  .ic span{ display:block; margin-top:8px; font-size:11px; color:var(--muted); }
+  .ic.light{ background:#f4f6f2; }
+  .ic.light span{ color:#555; }
+  /* chrome row */
+  .chrome{ display:flex; flex-wrap:wrap; gap:18px; align-items:center; }
+  .chrome img{ width:40px; height:40px; object-fit:contain; }
+  /* buttons */
+  .btns{ display:flex; flex-wrap:wrap; gap:18px; align-items:center; }
+  .btn{ display:inline-flex; align-items:center; justify-content:center; padding:15px 30px; border:0; border-radius:999px; font-family:var(--body); font-weight:800; text-transform:uppercase; letter-spacing:.02em; color:var(--ink); background:linear-gradient(180deg,var(--volt-soft),var(--volt)); box-shadow:inset 0 1px 0 rgba(255,255,255,.5), 0 10px 28px var(--volt-glow); }
+  .btn-ghost{ display:inline-flex; align-items:center; padding:14px 26px; border-radius:999px; font-weight:800; text-transform:uppercase; color:var(--chalk); background:rgba(255,255,255,.04); border:1px solid var(--line-strong); }
+  .btn-cta img{ height:62px; filter:drop-shadow(0 14px 34px var(--volt-glow)); }
+  /* scene */
+  .scene{ border-radius:16px; overflow:hidden; border:1px solid var(--line); }
+  .scene img{ width:100%; display:block; }
+  .two{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .logos{ display:flex; gap:18px; flex-wrap:wrap; }
+  .logobox{ flex:1; min-width:240px; border-radius:14px; padding:26px; display:flex; align-items:center; justify-content:center; border:1px solid var(--line); }
+  .logobox.dark{ background:var(--ink); } .logobox.light{ background:#f4f6f2; }
+  .logobox img{ height:38px; }
+  @media (max-width:640px){ .two{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="sg">
+    <img src="logo.png" alt="SURGE">
+    <span class="tag">Drop body fat and build real strength in 6 weeks.</span>
+  </header>
+
+  <h2 class="sg">Logo — dark-theme wordmark · mark reads on both</h2>
+  <div class="logos">
+    <div class="logobox dark"><img src="logo.png" alt="SURGE wordmark on dark"></div>
+    <div class="logobox dark"><img src="logo-mark.png" alt="SURGE volt mark on dark" style="height:54px"></div>
+    <div class="logobox light"><img src="logo-mark.png" alt="SURGE volt mark on light" style="height:54px"></div>
+  </div>
+  <p style="color:var(--muted); font-size:13px; margin:12px 2px 0">The wordmark is a white dark-theme lockup (the page only places it on charcoal — nav and footer). The volt-lime bolt mark holds on light and dark for favicons and badges.</p>
+
+  <h2 class="sg">Palette</h2>
+  <div class="swatches">
+    <div class="sw"><div class="chip" style="background:#0c0d0f"></div><div class="meta"><b>Ink</b><span>#0c0d0f</span></div></div>
+    <div class="sw"><div class="chip" style="background:#15171b"></div><div class="meta"><b>Paper</b><span>#15171b</span></div></div>
+    <div class="sw"><div class="chip" style="background:#1d2026"></div><div class="meta"><b>Paper strong</b><span>#1d2026</span></div></div>
+    <div class="sw"><div class="chip" style="background:#c8f135"></div><div class="meta"><b>Volt-lime</b><span>#c8f135</span></div></div>
+    <div class="sw"><div class="chip" style="background:#9bbe16"></div><div class="meta"><b>Volt deep</b><span>#9bbe16</span></div></div>
+    <div class="sw"><div class="chip" style="background:#e2fa84"></div><div class="meta"><b>Volt soft</b><span>#e2fa84</span></div></div>
+    <div class="sw"><div class="chip" style="background:#9aa1ab"></div><div class="meta"><b>Muted</b><span>#9aa1ab</span></div></div>
+    <div class="sw"><div class="chip" style="background:#f4f6f2"></div><div class="meta"><b>Chalk</b><span>#f4f6f2</span></div></div>
+  </div>
+
+  <h2 class="sg">Typography</h2>
+  <div class="panel">
+    <div class="type-row"><div class="disp" style="font-size:56px">Six weeks. Real results.</div><span style="color:var(--muted)">Anton · display · uppercase</span></div>
+    <div class="type-row"><div class="disp" style="font-size:32px; color:var(--volt)">Join the challenge</div><span style="color:var(--muted)">Anton · accent</span></div>
+    <div class="type-row"><div style="font-size:18px; line-height:1.6; max-width:60ch">Body copy is set in Archivo — a clean, confident grotesk that holds up next to the heavy Anton display. Drop body fat and build real strength on a schedule that fits a real life.</div><span style="color:var(--muted)">Archivo 400/700/800 · body</span></div>
+  </div>
+
+  <h2 class="sg">Feature icons</h2>
+  <div class="iconset">
+    <div class="ic"><img src="../assets/img/ic-app.png" alt="App"><span>App</span></div>
+    <div class="ic"><img src="../assets/img/ic-dumbbell.png" alt="Dumbbell"><span>Workouts</span></div>
+    <div class="ic"><img src="../assets/img/ic-meal.png" alt="Meal"><span>Meal plan</span></div>
+    <div class="ic"><img src="../assets/img/ic-coach.png" alt="Coach"><span>Coaching</span></div>
+    <div class="ic"><img src="../assets/img/ic-community.png" alt="Community"><span>Cohort</span></div>
+    <div class="ic"><img src="../assets/img/ic-clock.png" alt="Clock"><span>Timed</span></div>
+    <div class="ic"><img src="../assets/img/ic-fire.png" alt="Fire"><span>Burn</span></div>
+  </div>
+
+  <h2 class="sg">Chrome — checks, arrows, play, bolt, star (on dark &amp; light)</h2>
+  <div class="two">
+    <div class="panel chrome">
+      <img src="../assets/img/chk-check.png" alt="check">
+      <img src="../assets/img/chk-arrow.png" alt="arrow">
+      <img src="../assets/img/chk-play.png" alt="play">
+      <img src="../assets/img/chk-bolt.png" alt="bolt">
+      <img src="../assets/img/chk-star.png" alt="star">
+      <img src="../assets/img/seal.png" alt="seal" style="width:64px;height:64px">
+    </div>
+    <div class="panel chrome" style="background:#f4f6f2">
+      <img src="../assets/img/chk-check.png" alt="check">
+      <img src="../assets/img/chk-arrow.png" alt="arrow">
+      <img src="../assets/img/chk-play.png" alt="play">
+      <img src="../assets/img/chk-bolt.png" alt="bolt">
+      <img src="../assets/img/chk-star.png" alt="star">
+      <img src="../assets/img/seal.png" alt="seal" style="width:64px;height:64px">
+    </div>
+  </div>
+
+  <h2 class="sg">Buttons</h2>
+  <div class="panel btns">
+    <a class="btn-cta"><img src="../assets/img/btn-cta.png" alt="Join the Challenge"></a>
+    <button class="btn">Join the Challenge</button>
+    <button class="btn-ghost">Watch how it works</button>
+  </div>
+
+  <h2 class="sg">Scene &amp; host</h2>
+  <div class="two">
+    <div class="scene"><img src="../assets/img/hero.webp" alt="Hero scene"></div>
+    <div class="scene"><img src="../assets/img/host.webp" alt="Coach Mara Vance"></div>
+  </div>
+
+  <h2 class="sg">Style signature</h2>
+  <div class="panel" style="color:var(--muted); line-height:1.7; font-size:14px">
+    Dramatic cinematic athletic photography, gritty high-contrast dark gym, hard volt-lime (#c8f135) rim light and electric edge glow against a near-black charcoal (#0c0d0f) and graphite (#1a1d21) environment, sweat sheen and chalk dust suspended in the air, motion blur and flying sparks, raw muscular power and explosive effort, deep shadows with a single bright accent light, shallow depth of field, hyper-detailed, professional sports key art.
+  </div>
+</div>
+</body>
+</html>

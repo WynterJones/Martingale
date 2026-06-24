@@ -1,0 +1,46 @@
+{
+  "name": "SURGE",
+  "tagline": "Drop body fat and build real strength in 6 weeks.",
+  "fictional": true,
+  "seed": 84217,
+  "styleSignature": "Dramatic cinematic athletic photography, gritty high-contrast dark gym, hard volt-lime (#c8f135) rim light and electric edge glow against a near-black charcoal (#0c0d0f) and graphite (#1a1d21) environment, sweat sheen and chalk dust suspended in the air, motion blur and flying sparks, raw muscular power and explosive effort, deep shadows with a single bright accent light, shallow depth of field, hyper-detailed, professional sports key art. No text, no words, no letters.",
+  "styleSignatureWhiteBg": "Bold premium 3D athletic render, clean even studio lighting with a soft volt-lime (#c8f135) glow, glossy charcoal (#1a1d21) and graphite material with hard electric-lime edge light, crisp confident sport-equipment style, single centered isolated subject. Solid pure pure-white seamless studio background, brightly lit, no dark environment, no scenery, no cast shadow, no reflection on the background. No text, no words, no letters.",
+  "_signatureNote": "Use styleSignature for full scenes/heroes/athlete art (dark charcoal). Use styleSignatureWhiteBg for any asset keyed out to transparent (logo, mark, icons, chrome, host cutout, seal). The dark signature's near-black background fights cutouts. Always prepend the chosen signature to the subjectPrompt. Single-hue accent only — volt-lime; never blend volt into a second hue.",
+  "engines": {
+    "scenes": "fal:fal-ai/flux-pro/v1.1-ultra",
+    "icons": "fal:fal-ai/flux-pro/v1.1-ultra",
+    "logo": "fal:fal-ai/ideogram/v3",
+    "buttons": "fal:fal-ai/recraft-v3",
+    "video": "fal:fal-ai/kling-video/v2.5-turbo/pro/image-to-video"
+  },
+  "palette": {
+    "ink": "#0c0d0f",
+    "ink2": "#000000",
+    "muted": "#9aa1ab",
+    "paper": "#15171b",
+    "paperStrong": "#1d2026",
+    "deep": "#0c0d0f",
+    "deep2": "#15171b",
+    "deep3": "#1d2026",
+    "line": "rgba(154,161,171,0.16)",
+    "volt": "#c8f135",
+    "voltDeep": "#9bbe16",
+    "voltSoft": "#e2fa84",
+    "voltGlow": "rgba(200,241,53,0.35)",
+    "chalk": "#f4f6f2"
+  },
+  "type": {
+    "display": "'Anton', 'Archivo', ui-sans-serif, system-ui, sans-serif",
+    "displayAlt": "'Archivo', ui-sans-serif, system-ui, sans-serif",
+    "body": "'Archivo', ui-sans-serif, system-ui, sans-serif",
+    "displayWeight": 400,
+    "bodyWeight": 400
+  },
+  "radius": "16px",
+  "assets": {
+    "logo": "brand/logo.png",
+    "logoMark": "brand/logo-mark.png",
+    "favicon": "brand/favicon.png",
+    "styleBoard": "brand/style-board.webp"
+  }
+}

@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>CodeForge — Learn to Code by Building Real Software | Project-based dev course</title>
+<meta name="description" content="CodeForge is a project-based coding course that takes you from your first line of code to job-ready. Build real, shipping web apps alongside AI — no toy exercises. One-time price, lifetime access." />
+<link rel="icon" type="image/png" href="brand/favicon.png" />
+
+<!-- Open Graph / social share -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="CodeForge — Learn to code by building real software" />
+<meta property="og:description" content="A project-based coding course. Go from first line of code to job-ready by shipping real apps. One-time price, lifetime access." />
+<meta property="og:image" content="brand/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="CodeForge — Learn to code by building real software" />
+<meta name="twitter:description" content="Project-based coding course. First line of code to job-ready. One-time price, lifetime access." />
+<meta name="twitter:image" content="brand/og-image.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+<!-- ============ PROMO BAR ============ -->
+<div class="promo">
+  <span class="promo-dot"></span>
+  Enroll today · <b>lifetime access</b> · learn at your own pace ·
+  <span class="promo-muted">30-day money-back guarantee</span>
+</div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="CodeForge home">
+    <span class="wordmark">Code<span class="wordmark-accent">Forge</span></span>
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="#projects">Projects</a>
+    <a href="#how">Curriculum</a>
+    <a href="#inside">What you get</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+  <div class="nav-cta">
+    <a class="btn btn-sm" data-buy href="#pricing">Enroll now</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- mobile drawer -->
+<div class="drawer" id="drawer" aria-hidden="true">
+  <button class="drawer-close" id="drawerClose" aria-label="Close menu">✕</button>
+  <a href="#projects">Projects</a>
+  <a href="#how">Curriculum</a>
+  <a href="#inside">What you get</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#faq">FAQ</a>
+  <a class="btn" data-buy href="#pricing">Enroll in CodeForge</a>
+</div>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/video/hero-poster.jpg">
+    <source src="assets/video/hero.mp4" type="video/mp4" />
+  </video>
+  <div class="hero-scrim"></div>
+  <canvas id="particles" class="particles" aria-hidden="true"></canvas>
+
+  <div class="hero-inner">
+    <p class="eyebrow reveal"><span class="ember-dot"></span> Project-based coding course</p>
+    <h1 class="visually-hidden">CodeForge — learn to code by building real software</h1>
+    <img src="assets/img/hl-forge.png" alt="CodeForge" class="hero-headline reveal" />
+    <p class="hero-sub reveal">
+      Stop watching tutorials you forget by morning. CodeForge takes you from your
+      <b>first line of code</b> to <b>job-ready</b> by shipping <b>real</b> apps —
+      paired with AI, the way developers actually work&nbsp;today.
+    </p>
+    <div class="hero-cta reveal">
+      <a class="btn-cta" data-buy href="#pricing" aria-label="Enroll in CodeForge">
+        <img src="assets/img/btn-cta.png" alt="Start forging" />
+      </a>
+      <a class="btn btn-ghost btn-lg" href="#projects">See what you'll build</a>
+    </div>
+    <ul class="hero-trust reveal" aria-label="You'll learn">
+      <li>HTML &amp; CSS</li><li>JavaScript</li><li>React</li><li>APIs</li><li>Git &amp; deploy</li>
+    </ul>
+  </div>
+
+  <img src="assets/img/mascot.png" alt="" class="hero-mascot parallax" data-speed="0.06" aria-hidden="true" />
+  <div class="hero-fade"></div>
+</section>
+
+<!-- ============ PITCH / WHAT IT IS ============ -->
+<section class="section pitch" id="pitch">
+  <div class="wrap">
+    <p class="kicker reveal">Build first, theory second</p>
+    <h2 class="h2 reveal">Most courses hand you lectures.<br><span class="grad">CodeForge hands you a forge.</span></h2>
+    <p class="lead reveal">
+      No 40-hour video you'll never finish. You learn by building — pick a project,
+      write real code with an AI mentor at your shoulder, and ship something you can
+      actually put in a portfolio. Confidence comes from shipping, not&nbsp;watching.
+    </p>
+
+    <div class="steps">
+      <article class="step reveal">
+        <img src="assets/img/ic-terminal.png" alt="" class="step-ic" />
+        <h3>1 · Set up your forge</h3>
+        <p>Install the same tools the pros use — editor, terminal, git. We walk you through every step, on Mac or Windows.</p>
+      </article>
+      <article class="step reveal">
+        <img src="assets/img/ic-spark.png" alt="" class="step-ic" />
+        <h3>2 · Code with AI</h3>
+        <p>Learn modern, AI-paired workflows from lesson one — how to prompt, read, and ship code the way working devs do now.</p>
+      </article>
+      <article class="step reveal">
+        <img src="assets/img/ic-anvil.png" alt="" class="step-ic" />
+        <h3>3 · Ship real projects</h3>
+        <p>Every module ends with a real app you build and deploy live — graded with a code review you can act on.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<img src="assets/img/coil.png" alt="" class="coil-divider" aria-hidden="true" />
+
+<!-- ============ SLOT REEL — PROJECTS ============ -->
+<section class="section reel-section" id="projects">
+  <div class="wrap">
+    <p class="kicker reveal">What you'll forge</p>
+    <h2 class="h2 reveal">Real projects. <span class="grad">Real portfolio.</span></h2>
+    <p class="lead reveal">You don't finish CodeForge with notes — you finish with shipped, deployed apps. Each module forges a different kind of build, so your portfolio shows range from day&nbsp;one.</p>
+  </div>
+
+  <div class="machine reveal">
+    <div class="machine-top">
+      <span class="machine-bulbs" aria-hidden="true"></span>
+      <span class="machine-name">CODEFORGE&nbsp;·&nbsp;PROJECT&nbsp;FORGE</span>
+      <span class="machine-bulbs" aria-hidden="true"></span>
+    </div>
+
+    <div class="reels" id="reels">
+      <figure class="reel" data-name="Interactive Web App" data-tag="HTML · CSS · JS">
+        <div class="reel-window"><img src="assets/img/card-fishing.webp" alt="Interactive web app project" /></div>
+        <figcaption><b>Interactive&nbsp;App</b><span>HTML · CSS · vanilla JS</span></figcaption>
+      </figure>
+      <figure class="reel" data-name="E-commerce Storefront" data-tag="Cart · checkout">
+        <div class="reel-window"><img src="assets/img/card-macaron.webp" alt="E-commerce storefront project" /></div>
+        <figcaption><b>Storefront</b><span>Cart · checkout flow</span></figcaption>
+      </figure>
+      <figure class="reel reel-jackpot" data-name="Your Capstone" data-tag="Ship anything">
+        <div class="reel-window"><img src="assets/img/card-wild.webp" alt="Capstone — build and ship your own app" /></div>
+        <figcaption><b>Your&nbsp;Capstone</b><span class="wild">WILD · ship anything</span></figcaption>
+      </figure>
+      <figure class="reel" data-name="SaaS Dashboard" data-tag="React · components">
+        <div class="reel-window"><img src="assets/img/card-saas.webp" alt="SaaS dashboard project" /></div>
+        <figcaption><b>SaaS&nbsp;Dashboard</b><span>React · components</span></figcaption>
+      </figure>
+      <figure class="reel" data-name="Full-Stack API" data-tag="API · database">
+        <div class="reel-window"><img src="assets/img/card-leadgen.webp" alt="Full-stack API project" /></div>
+        <figcaption><b>Full-Stack&nbsp;API</b><span>API · database · auth</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="machine-base">
+      <p class="machine-foot">Plus weekly <b>code-along</b> builds and a growing vault of <b>bonus mini-projects</b>.</p>
+      <a class="btn btn-sm" data-buy href="#pricing">Build all five — enroll</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS / CURRICULUM ============ -->
+<section class="section how" id="how">
+  <div class="wrap">
+    <p class="kicker reveal">The five-stage path</p>
+    <h2 class="h2 reveal">From zero to job-ready,&nbsp;<span class="grad">one forge at a time.</span></h2>
+    <ol class="timeline">
+      <li class="tl reveal"><span class="tl-no">0</span><div><h3>Foundations</h3><p>How the web works, the command line, HTML &amp; CSS. Build and style your first page by the end of week one.</p></div></li>
+      <li class="tl reveal"><span class="tl-no">1</span><div><h3>JavaScript &amp; logic</h3><p>Variables to async, the DOM, real interactivity. Think like a programmer and make pages actually do things.</p></div></li>
+      <li class="tl reveal"><span class="tl-no">2</span><div><h3>Build &amp; version</h3><p>Ship full projects, manage them with Git &amp; GitHub, and learn to read errors instead of fearing them.</p></div></li>
+      <li class="tl reveal"><span class="tl-no">3</span><div><h3>Frameworks &amp; APIs</h3><p>React, components, fetching real data, and full-stack basics — the stack hiring managers ask for.</p></div></li>
+      <li class="tl reveal"><span class="tl-no">4</span><div><h3>Ship &amp; get hired</h3><p>Deploy live, polish your portfolio, and prep for interviews with real-world coding challenges.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ FEATURE GRID ============ -->
+<section class="section features" id="features">
+  <div class="wrap">
+    <p class="kicker reveal">Why it actually sticks</p>
+    <h2 class="h2 reveal">Built to make you a <span class="grad">developer, not a viewer.</span></h2>
+    <div class="grid">
+      <article class="feat reveal"><img src="assets/img/ic-anvil.png" alt="" /><h3>Project-based, not passive</h3><p>Every concept is forged into a real build. You learn by shipping, the only way skills actually stick.</p></article>
+      <article class="feat reveal"><img src="assets/img/ic-spark.png" alt="" /><h3>AI-paired from day one</h3><p>Learn the modern workflow: how to prompt, review, and ship code with an AI mentor — not how to memorize syntax.</p></article>
+      <article class="feat reveal"><img src="assets/img/ic-motion.png" alt="" /><h3>Momentum, not burnout</h3><p>Short focused lessons, a clear path, and a daily streak — designed so you keep showing up and actually finish.</p></article>
+      <article class="feat reveal"><img src="assets/img/ic-terminal.png" alt="" /><h3>The real tools</h3><p>VS Code, the terminal, Git, deploys — the exact stack working developers use, set up with you step by step.</p></article>
+      <article class="feat reveal"><img src="assets/img/ic-scroll.png" alt="" /><h3>Structured curriculum</h3><p>No "go figure it out." A clear, ordered path from your first tag to a deployed full-stack app.</p></article>
+      <article class="feat reveal"><img src="assets/img/ic-chest.png" alt="" /><h3>Yours forever</h3><p>Lifetime access, every future update, and a private community of forgers. No subscription, no expiry.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="section stats">
+  <div class="wrap stats-row">
+    <div class="stat reveal"><b><span data-count="12">0</span>k+</b><span>developers forged</span></div>
+    <div class="stat reveal"><b><span data-count="40">0</span>+</b><span>projects &amp; lessons</span></div>
+    <div class="stat reveal"><b><span data-count="60">0</span>h</b><span>of guided builds</span></div>
+    <div class="stat reveal"><b><span data-count="49">0</span></b><span>★ average rating (4.9)</span></div>
+  </div>
+</section>
+
+<!-- ============ WHAT YOU GET ============ -->
+<section class="section inside" id="inside">
+  <div class="wrap inside-grid">
+    <div class="inside-copy reveal">
+      <p class="kicker">Open the chest</p>
+      <h2 class="h2">Everything in the&nbsp;<span class="grad">enrollment.</span></h2>
+      <p class="lead">One enrollment, the whole forge. Lessons, projects, reviews, and a community — no upsells, no monthly fee.</p>
+      <a class="btn btn-lg" data-buy href="#pricing">Enroll for $149</a>
+    </div>
+    <ul class="checklist reveal">
+      <li><img src="assets/img/ic-check.png" alt="✓" /><div><b>60+ hours of guided builds</b> — short, focused video lessons that always end in a working app.</div></li>
+      <li><img src="assets/img/ic-check.png" alt="✓" /><div><b>5 portfolio projects + a capstone</b> — real, deployable builds you'll be proud to show.</div></li>
+      <li><img src="assets/img/ic-check.png" alt="✓" /><div><b>Starter code &amp; repos</b> — every project's source, so you're never stuck on a blank screen.</div></li>
+      <li><img src="assets/img/ic-check.png" alt="✓" /><div><b>Code reviews</b> — submit your work and get actionable feedback, not just a green check.</div></li>
+      <li><img src="assets/img/ic-check.png" alt="✓" /><div><b>Private community</b> — a Discord of fellow forgers and mentors to unblock you fast.</div></li>
+      <li><img src="assets/img/ic-check.png" alt="✓" /><div><b>Certificate &amp; lifetime updates</b> — finish with proof, and every new module lands free.</div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ PRICING / OFFER ============ -->
+<section class="section pricing" id="pricing">
+  <video class="band-video" autoplay muted loop playsinline preload="none" poster="assets/video/forge-poster.jpg" aria-hidden="true">
+    <source src="assets/video/forge.mp4" type="video/mp4" />
+  </video>
+  <div class="band-scrim"></div>
+  <div class="wrap">
+    <p class="kicker reveal" style="text-align:center">One enrollment. One price.</p>
+    <h2 class="h2 reveal" style="text-align:center">Start your&nbsp;<span class="grad">developer story.</span></h2>
+
+    <div class="price-card reveal">
+      <div class="price-glow" aria-hidden="true"></div>
+      <div class="seal" aria-hidden="false">
+        <img src="assets/img/seal.png" alt="" />
+        <span class="seal-text">LIFETIME<br>ACCESS</span>
+      </div>
+      <h3 class="price-title">CodeForge — Full Course</h3>
+      <p class="price-sub">The complete project-based path from beginner to job-ready.</p>
+      <div class="price-amount"><span class="cur">$</span><span class="big">149</span><span class="once">one-time</span></div>
+      <p class="price-strike">No subscription · lifetime access · all future updates</p>
+      <a class="btn-cta price-btn" data-buy href="#" aria-label="Enroll in CodeForge for $149">
+        <img src="assets/img/btn-cta.png" alt="Start forging" />
+      </a>
+      <p class="price-secure">Secure checkout · instant access · 30-day money-back guarantee</p>
+      <ul class="price-list">
+        <li><img src="assets/img/ic-check.png" alt="✓" />60+ hours of guided, project-based lessons</li>
+        <li><img src="assets/img/ic-check.png" alt="✓" />5 portfolio projects + a capstone build</li>
+        <li><img src="assets/img/ic-check.png" alt="✓" />Code reviews &amp; private community access</li>
+        <li><img src="assets/img/ic-check.png" alt="✓" />Self-paced — keep your access forever</li>
+        <li><img src="assets/img/ic-check.png" alt="✓" />Certificate + every future module, free</li>
+      </ul>
+    </div>
+    <p class="guarantee reveal">Built for career-changers, students &amp; self-taught makers. Work through the first module and if CodeForge isn't right for you, reply to your receipt within 30 days for a full, no-questions refund.</p>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section faq" id="faq">
+  <div class="wrap wrap-narrow">
+    <p class="kicker reveal" style="text-align:center">Before you enroll</p>
+    <h2 class="h2 reveal" style="text-align:center">Questions, <span class="grad">answered.</span></h2>
+    <div class="faq-list">
+      <details class="qa reveal"><summary>Do I need any coding experience?</summary><p>None at all. CodeForge starts at the very beginning — how the web works, installing your tools, writing your first line — and ramps you up to full-stack apps. Complete beginners are exactly who it's built for.</p></details>
+      <details class="qa reveal"><summary>How long does it take to finish?</summary><p>It's fully self-paced. Most students reach job-ready in 3–6 months at a few hours a week, but you keep lifetime access, so there's no clock and no pressure — go as fast or slow as your life allows.</p></details>
+      <details class="qa reveal"><summary>What will I actually build?</summary><p>Real, deployable projects: an interactive web app, an e-commerce storefront, a React SaaS dashboard, a full-stack API, and a capstone of your own. You finish with a portfolio, not just notes.</p></details>
+      <details class="qa reveal"><summary>Do I get help when I'm stuck?</summary><p>Yes. You get code reviews on your project submissions plus a private community of fellow learners and mentors to unblock you — so you're never stuck staring at an error alone.</p></details>
+      <details class="qa reveal"><summary>Mac or Windows — does it matter?</summary><p>Either works. The setup lessons cover both, step by step, and every tool we use is free and cross-platform. A basic laptop is all you need.</p></details>
+      <details class="qa reveal"><summary>What if it's not for me?</summary><p>Enroll, work through the first module, and if it's not the right fit, reply to your receipt within 30 days for a full refund. No forms, no questions.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="section final">
+  <canvas id="emberField" class="ember-field" aria-hidden="true"></canvas>
+  <div class="wrap final-inner reveal">
+    <img src="assets/img/mascot.png" alt="" class="final-mascot" aria-hidden="true" />
+    <h2 class="h2">Stop watching tutorials.<br><span class="grad">Start forging&nbsp;code.</span></h2>
+    <p class="lead">One course. One path. Real apps you actually&nbsp;ship.</p>
+    <a class="btn-cta" data-buy href="#" aria-label="Enroll in CodeForge for $149">
+      <img src="assets/img/btn-cta.png" alt="Start forging" />
+    </a>
+    <p class="final-foot">One-time $149 · instant access · lifetime updates</p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <span class="wordmark footer-wordmark">Code<span class="wordmark-accent">Forge</span></span>
+      <p class="footer-tag">Forge real software. Become the developer you're meant to be.</p>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="#projects">Projects</a>
+      <a href="#how">Curriculum</a>
+      <a href="#inside">What you get</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </div>
+  <p class="footer-fine">© <span id="year">2026</span> CodeForge. Fictional demo for design purposes. Built with the LP-Templates pipeline.</p>
+</footer>
+
+</main>
+
+<!-- ============ HOST / MENTOR WIDGET ============ -->
+<button class="fab" id="fab" aria-label="Watch a sample lesson">
+  <img src="assets/img/mascot.png" alt="" class="fab-mascot" />
+  <img src="assets/img/play-badge.png" alt="" class="fab-play" />
+  <span class="fab-tip">Watch a sample&nbsp;lesson</span>
+</button>
+
+<div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="CodeForge sample lesson">
+  <div class="modal-card">
+    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+    <div class="modal-video">
+      <iframe id="player" src="" data-src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1"
+        title="CodeForge sample lesson" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <a class="btn btn-lg modal-cta" data-buy href="#pricing" data-close-modal>Enroll in CodeForge — $149</a>
+  </div>
+</div>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

@@ -3,14 +3,13 @@
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ====== CONFIG — set your Gumroad product URL here ====================
-     1. Create a $28 product on Gumroad and upload the DragonForge ZIP.
+     1. Create a $28 product on Gumroad and upload the NabuDesigner ZIP.
      2. Paste its product URL below. The page links straight to Gumroad's
         hosted checkout, which delivers the ZIP instantly after payment.
      OPTIONAL on-page overlay: add ?wanted=true to the URL AND uncomment the
-        `gumroad.js` <script> at the bottom of index.html — note the overlay
-        injects Gumroad's own button styling.
-     Example: "https://yourname.gumroad.com/l/dragonforge"                  */
-  var BUY_URL = "https://gumroad.com/l/dragonforge";
+        `gumroad.js` <script> at the bottom of index.html.
+     Example: "https://yourname.gumroad.com/l/nabudesigner"                 */
+  var BUY_URL = "https://gumroad.com/l/nabudesigner";
   /* ===================================================================== */
 
   document.querySelectorAll("[data-buy]").forEach(function (a) {
@@ -72,27 +71,6 @@
     });
   });
 
-  /* parallax layers */
-  var layers = Array.prototype.slice.call(document.querySelectorAll(".parallax"));
-  if (layers.length && !reduce) {
-    var ticking = false;
-    function updateP() {
-      var vh = window.innerHeight;
-      layers.forEach(function (el) {
-        var r = el.parentElement.getBoundingClientRect();
-        var speed = parseFloat(el.getAttribute("data-speed")) || 0.12;
-        var offset = (r.top + r.height / 2 - vh / 2) * -speed;
-        el.style.transform = "translate3d(0," + offset.toFixed(1) + "px,0)";
-      });
-      ticking = false;
-    }
-    window.addEventListener("scroll", function () {
-      if (!ticking) { requestAnimationFrame(updateP); ticking = true; }
-    }, { passive: true });
-    window.addEventListener("resize", updateP);
-    updateP();
-  }
-
   /* count-up stats */
   var counters = document.querySelectorAll("[data-count]");
   if ("IntersectionObserver" in window && !reduce) {
@@ -113,50 +91,6 @@
     counters.forEach(function (el) { cio.observe(el); });
   } else {
     counters.forEach(function (el) { el.textContent = el.getAttribute("data-count"); });
-  }
-
-  /* ====== SLOT REEL — each reel idly re-spins on its own random 2-4s timer,
-     but only while the machine is on screen (saves work when scrolled away). */
-  var reels = Array.prototype.slice.call(document.querySelectorAll("#reels .reel"));
-  var machine = document.querySelector(".machine");
-  if (reels.length && machine && !reduce) {
-    var timers = [], inView = false;
-
-    function spinReel(r) {
-      r.classList.remove("spinning");
-      void r.offsetWidth;              // restart the animation
-      r.classList.add("spinning");
-      setTimeout(function () { r.classList.remove("spinning"); }, 850);
-    }
-    function schedule(r) {
-      var delay = 2000 + Math.random() * 2000;   // random 2-4s per reel
-      return setTimeout(function () {
-        if (inView) spinReel(r);
-        timers.push(schedule(r));                 // queue the next idle spin
-      }, delay);
-    }
-    function start() {
-      if (timers.length) return;
-      reels.forEach(function (r, i) {
-        spinReel(r);                              // one settling spin on entry (staggered)
-        r.style.animationDelay = "";
-      });
-      reels.forEach(function (r) { timers.push(schedule(r)); });
-    }
-    function stop() { timers.forEach(clearTimeout); timers = []; }
-
-    if ("IntersectionObserver" in window) {
-      var mio = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          inView = e.isIntersecting;
-          if (inView) start(); else stop();
-        });
-      }, { threshold: 0.25 });
-      mio.observe(machine);
-    } else { inView = true; start(); }
-    document.addEventListener("visibilitychange", function () {
-      if (document.hidden) stop(); else if (inView) start();
-    });
   }
 
   /* ====== host video modal (real YouTube) ====== */
@@ -188,21 +122,23 @@
     });
   }
 
-  /* ====== particle field helper ====== */
-  function particleField(canvas, colors, density) {
+  /* ====== starfield particle helper (drifting stars + twinkle) ====== */
+  function starField(canvas, colors, density) {
     if (!canvas || !canvas.getContext || reduce) return;
     var ctx = canvas.getContext("2d"), dots = [], W, H, raf, host = canvas.parentElement;
     function size() {
       W = canvas.width = host.offsetWidth;
       H = canvas.height = host.offsetHeight;
-      var n = Math.min(80, Math.round(W / density));
+      var n = Math.min(90, Math.round(W / density));
       dots = [];
       for (var i = 0; i < n; i++) dots.push({
         x: Math.random() * W, y: Math.random() * H,
-        r: Math.random() * 2.4 + 0.5,
-        vy: -(Math.random() * 0.4 + 0.12),
-        vx: (Math.random() - 0.5) * 0.22,
-        a: Math.random() * 0.6 + 0.2,
+        r: Math.random() * 1.8 + 0.4,
+        vy: -(Math.random() * 0.28 + 0.06),
+        vx: (Math.random() - 0.5) * 0.16,
+        tw: Math.random() * Math.PI * 2,
+        ts: Math.random() * 0.04 + 0.01,
+        a: Math.random() * 0.5 + 0.25,
         c: colors[(Math.random() * colors.length) | 0]
       });
     }
@@ -210,13 +146,14 @@
       ctx.clearRect(0, 0, W, H);
       for (var i = 0; i < dots.length; i++) {
         var d = dots[i];
-        d.y += d.vy; d.x += d.vx;
+        d.y += d.vy; d.x += d.vx; d.tw += d.ts;
         if (d.y < -12) { d.y = H + 12; d.x = Math.random() * W; }
         if (d.x < -12) d.x = W + 12; else if (d.x > W + 12) d.x = -12;
+        var a = d.a * (0.55 + 0.45 * Math.sin(d.tw));
         ctx.beginPath();
         ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(" + d.c + "," + d.a + ")";
-        ctx.shadowBlur = 8; ctx.shadowColor = "rgba(" + d.c + ",.8)";
+        ctx.fillStyle = "rgba(" + d.c + "," + a.toFixed(2) + ")";
+        ctx.shadowBlur = 7; ctx.shadowColor = "rgba(" + d.c + ",.8)";
         ctx.fill();
       }
       ctx.shadowBlur = 0;
@@ -228,6 +165,6 @@
     size(); draw();
     window.addEventListener("resize", size);
   }
-  particleField(document.getElementById("particles"), ["255,150,60", "244,192,68", "255,106,43"], 22);
-  particleField(document.getElementById("emberField"), ["255,106,43", "244,192,68", "216,52,23"], 28);
+  starField(document.getElementById("stars"), ["123,108,255", "52,227,196", "246,207,114"], 20);
+  starField(document.getElementById("starField"), ["123,108,255", "176,102,255", "246,207,114"], 26);
 })();

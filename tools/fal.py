@@ -14,6 +14,11 @@ video  --image path_or_url --prompt "..."
        [--duration 5] [--aspect 16:9] --out path.mp4
     Image-to-video looping motion. Input image is uploaded as a data URI.
 
+bg     IN OUT [--model fal-ai/bria/background/remove]
+    Remove background -> clean transparent PNG (best matting; cheap vs remove.bg).
+    Accepts positional IN OUT or --image/--out. Alternatives: fal-ai/birefnet/v2
+    (cheaper), fal-ai/imageutils/rembg.
+
 Examples
 --------
     python3 tools/fal.py image --prompt "cinematic trophy bass leaping at dawn" \
@@ -135,13 +140,17 @@ def cmd_image(a):
 def cmd_bg(a):
     """Remove background -> clean transparent PNG via a fal matting model."""
     key = load_key()
-    payload = {"image_url": data_uri(a.image)}
+    image = a.image or a.image_pos
+    out = a.out or a.out_pos
+    if not image or not out:
+        sys.exit("bg: need input + output, e.g. fal.py bg raw/x.jpg assets/img/x.png")
+    payload = {"image_url": data_uri(image)}
     res = submit(a.model, payload, key)
     img = res.get("image") or res.get("images")
     url = (img[0]["url"] if isinstance(img, list) else img["url"]) if img else None
     if not url:
         sys.exit("bg: no image in response: " + json.dumps(res)[:400])
-    download(url, a.out)
+    download(url, out)
 
 
 def cmd_video(a):
@@ -173,10 +182,14 @@ def main():
     i.add_argument("--out", required=True)
     i.set_defaults(func=cmd_image)
 
-    b = sub.add_parser("bg")
-    b.add_argument("--image", required=True)
-    b.add_argument("--model", default="fal-ai/birefnet/v2")
-    b.add_argument("--out", required=True)
+    b = sub.add_parser("bg", help="remove background -> transparent PNG (fal matting)")
+    b.add_argument("image_pos", nargs="?", help="input image (positional)")
+    b.add_argument("out_pos", nargs="?", help="output PNG (positional)")
+    b.add_argument("--image", help="input image (alternative to positional)")
+    b.add_argument("--model", default="fal-ai/bria/background/remove",
+                   help="matting: fal-ai/bria/background/remove (default, best edges) | "
+                        "fal-ai/birefnet/v2 (cheaper) | fal-ai/imageutils/rembg")
+    b.add_argument("--out", help="output PNG (alternative to positional)")
     b.set_defaults(func=cmd_bg)
 
     v = sub.add_parser("video")
