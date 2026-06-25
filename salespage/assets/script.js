@@ -2,20 +2,18 @@
   "use strict";
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ====== CONFIG — set your Gumroad product URL here ====================
-     1. Create a $28 product on Gumroad and upload the NabuDesigner ZIP.
-     2. Paste its product URL below. The page links straight to Gumroad's
-        hosted checkout, which delivers the ZIP instantly after payment.
-     OPTIONAL on-page overlay: add ?wanted=true to the URL AND uncomment the
-        `gumroad.js` <script> at the bottom of index.html.
-     Example: "https://yourname.gumroad.com/l/nabudesigner"                 */
-  var BUY_URL = "https://gumroad.com/l/nabudesigner";
+  /* ====== CONFIG — the free download ===================================
+     The kit is a free ZIP that sits next to this page. Every [data-buy]
+     link points at it and downloads on click — no checkout, no signup.
+     To host the ZIP elsewhere (CDN / release asset), set DOWNLOAD_URL to
+     that absolute URL instead; the `download` attr still names the file.
+     Rebuild the ZIP from the repo root (see salespage/README.md).        */
+  var DOWNLOAD_URL = "nabudesigner-kit.zip";
   /* ===================================================================== */
 
   document.querySelectorAll("[data-buy]").forEach(function (a) {
-    a.setAttribute("href", BUY_URL);
-    a.setAttribute("target", "_blank");
-    a.setAttribute("rel", "noopener");
+    a.setAttribute("href", DOWNLOAD_URL);
+    a.setAttribute("download", "nabudesigner-kit.zip");
   });
 
   /* current year */
