@@ -2,12 +2,6 @@
   "use strict";
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* Lenis smooth scroll (modern feel; native scroll under the hood so IO + scrollY still work) */
-  var lenis = null;
-  if (window.Lenis && !reduce) {
-    lenis = new window.Lenis({ duration: 1.1, smoothWheel: true });
-    (function raf(t) { lenis.raf(t); requestAnimationFrame(raf); })();
-  }
 
   /* reveal on scroll */
   var reveals = document.querySelectorAll(".reveal");
@@ -30,9 +24,9 @@
   dclose.addEventListener("click", function () { setDrawer(false); });
   drawer.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { setDrawer(false); }); });
 
-  /* smooth anchors */
+  /* anchors */
   document.querySelectorAll('a[href^="#"]').forEach(function (l) {
-    l.addEventListener("click", function (e) { var t = document.querySelector(l.getAttribute("href")); if (!t) return; e.preventDefault(); if (lenis) lenis.scrollTo(t, { offset: -8 }); else t.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" }); });
+    l.addEventListener("click", function (e) { var t = document.querySelector(l.getAttribute("href")); if (!t) return; e.preventDefault(); window.scrollTo(0, t.getBoundingClientRect().top + window.pageYOffset - 8); });
   });
 
   /* parallax */

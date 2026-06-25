@@ -32,7 +32,7 @@
 }
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:var(--nav-h)}
+html{scroll-behavior:auto;scroll-padding-top:var(--nav-h)}
 body{
   margin:0;
   font-family:var(--body);

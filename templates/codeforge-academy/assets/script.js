@@ -57,7 +57,7 @@
   });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") setDrawer(false); });
 
-  /* smooth anchor scroll */
+  /* anchor scroll */
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     link.addEventListener("click", function (e) {
       var id = link.getAttribute("href");
@@ -65,7 +65,7 @@
       var t = document.querySelector(id);
       if (!t) return;
       e.preventDefault();
-      t.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+      t.scrollIntoView({ block: "start" });
     });
   });
 

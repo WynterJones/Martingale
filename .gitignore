@@ -16,3 +16,6 @@ __pycache__/
 
 # local tooling metadata
 .farmwork/
+
+# kit download artifact — hosted on GitHub Releases, not in git
+*.zip

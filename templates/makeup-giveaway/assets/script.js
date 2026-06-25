@@ -24,9 +24,9 @@
   drawer.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { setDrawer(false); }); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") setDrawer(false); });
 
-  /* smooth anchors */
+  /* anchors */
   document.querySelectorAll('a[href^="#"]').forEach(function (l) {
-    l.addEventListener("click", function (e) { var t = document.querySelector(l.getAttribute("href")); if (!t) return; e.preventDefault(); t.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" }); });
+    l.addEventListener("click", function (e) { var t = document.querySelector(l.getAttribute("href")); if (!t) return; e.preventDefault(); t.scrollIntoView({ block: "start" }); });
   });
 
   /* parallax */

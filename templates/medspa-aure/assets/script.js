@@ -2,12 +2,6 @@
   "use strict";
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---------- Lenis smooth scroll ---------- */
-  var lenis = null;
-  if (window.Lenis && !reduce) {
-    lenis = new window.Lenis({ duration: 1.1, smoothWheel: true });
-    (function raf(t) { lenis.raf(t); requestAnimationFrame(raf); })();
-  }
 
   /* ---------- year ---------- */
   var yr = document.getElementById("yr");
@@ -56,7 +50,7 @@
     a.addEventListener("click", function () { setDrawer(false); });
   });
 
-  /* ---------- smooth anchor scroll ---------- */
+  /* ---------- anchor scroll ---------- */
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     link.addEventListener("click", function (e) {
       var href = link.getAttribute("href");
@@ -64,8 +58,7 @@
       var t = document.querySelector(href);
       if (!t) return;
       e.preventDefault();
-      if (lenis) lenis.scrollTo(t, { offset: -70 });
-      else t.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+      window.scrollTo(0, t.getBoundingClientRect().top + window.pageYOffset - 70);
     });
   });
 

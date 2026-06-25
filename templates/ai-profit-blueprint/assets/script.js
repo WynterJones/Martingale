@@ -40,7 +40,7 @@
   if (dClose) dClose.addEventListener('click', closeDrawer);
   if (drawer) $$('.drawer-links a').forEach(function (a) { a.addEventListener('click', closeDrawer); });
 
-  /* ---------- smooth scroll to #optin for CTAs ---------- */
+  /* ---------- jump to #optin for CTAs ---------- */
   $$('[data-scroll]').forEach(function (el) {
     el.addEventListener('click', function (e) {
       var href = el.getAttribute('href');
@@ -49,7 +49,7 @@
         if (target) {
           e.preventDefault();
           closeDrawer();
-          target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+          target.scrollIntoView({ block: 'start' });
           var input = target.querySelector('input[type="email"]');
           if (input) setTimeout(function () { input.focus({ preventScroll: true }); }, reduce ? 0 : 520);
         }

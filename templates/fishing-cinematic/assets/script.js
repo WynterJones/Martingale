@@ -2,12 +2,6 @@
   "use strict";
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* Lenis smooth scroll (premium feel; native scroll under the hood) */
-  var lenis = null;
-  if (window.Lenis && !reduce) {
-    lenis = new window.Lenis({ duration: 1.1, smoothWheel: true });
-    (function raf(t) { lenis.raf(t); requestAnimationFrame(raf); })();
-  }
 
 
   /* reveal on scroll */
@@ -44,13 +38,13 @@
   drawer.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { setDrawer(false); }); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") setDrawer(false); });
 
-  /* smooth anchor scroll */
+  /* anchor scroll */
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     link.addEventListener("click", function (e) {
       var t = document.querySelector(link.getAttribute("href"));
       if (!t) return;
       e.preventDefault();
-      t.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+      t.scrollIntoView({ block: "start" });
     });
   });
 
